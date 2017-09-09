@@ -414,14 +414,14 @@
                             $result1= $conn->query($query1);
 
                              // echo "<select class='form-control' name='regno'>";
-
+                              echo '<h5 class="media-heading"> RegNo    Car Name        Date Sold</h5>';
                              // echo '<option value>select a car</option>';                                                    
                             while ($row1 = $result1->fetch_assoc()){                               
                             $regno = $row1['regno']; 
                             $vname = $row1['vname']; 
                             $datesold=$row1['datesold'];
 
-                             echo '<h6 class="media-heading">'.$regno.' '.$vname.' '.$datesold.' </h6>';
+                             echo '<h5 class="media-heading">'.$regno.'    '.$vname.'   '.$datesold.'</h5>';
                              
                           }
                           
