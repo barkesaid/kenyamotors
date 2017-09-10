@@ -6,6 +6,11 @@
     require_once ('sheader.html');
   ?>
   <title>Add Vehicle</title>
+    <script type="text/javascript">
+    function sayHello() {
+    alert("New Vehicle have been saved!")
+    }
+</script>
 </head>
 <body>
   <div class="layout-content">
@@ -24,7 +29,7 @@
                   <div class="form-group">
                     <label class="col-sm-3 control-label" for="form-control-3">Car Name </label>
                     <div class="col-sm-9">
-                      <input id="form-control-3" class="form-control" type="text" name="vname" placeholder="Toyota Prado" required>
+                      <input id="form-control-3" class="form-control" type="text" name="vname" placeholder="Toyota Prado" autofocus="on" required>
                     </div>
                   </div> <br>
 
@@ -71,7 +76,7 @@
                   </div> <br>
 
                      <div class="form-group">
-                    <label class="col-sm-3 control-label" for="form-control-3">Car Costing</label>
+                    <label class="col-sm-3 control-label" for="form-control-3">Car Costing(USD)</label>
                     <div class="col-sm-9">
                       <input id="form-control-3" class="form-control" type="text" name="costing" placeholder="In dollars eg 4200">
                     </div>
@@ -95,7 +100,7 @@
                   </div>
                 
                 <div style="padding-left:760px">                 
-                <input type="submit" name="submit" value="Save">               
+                <input type="submit" name="submit"  onclick="sayHello()" value="Save">               
                 </div>
 
                   </form>

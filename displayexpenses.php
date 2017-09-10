@@ -33,7 +33,7 @@
                     <!-- start test   -->
                     <?php
                     require("dbconnect.php");
-                    $query="SELECT edate,amount,details,id FROM expenses" ;
+                    $query="SELECT edate,amount,details,id FROM expenses ORDER BY edate DESC" ;
                         $result= $conn->query($query);     
 
                         echo "<div class='card-body'>"; 

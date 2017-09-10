@@ -79,21 +79,21 @@ while ($rows= $result->fetch_assoc())
                    <div class="form-group">
                     <label class="col-sm-3 control-label" for="form-control-3">Alternative Phone Number </label>
                     <div class="col-sm-9">
-                      <input id="form-control-3" class="form-control" type="text" name="altphone" value="<?php echo $altphone ?>" required>
+                      <input id="form-control-3" class="form-control" type="text" name="altphone" value="<?php echo $altphone ?>">
                     </div>
                   </div> <br>
 
                    <div class="form-group">
                     <label class="col-sm-3 control-label" for="form-control-3">Email Address</label>
                     <div class="col-sm-9">
-                      <input id="form-control-3" class="form-control" type="email" name="email" value="<?php echo $email ?>" required>
+                      <input id="form-control-3" class="form-control" type="email" name="email" value="<?php echo $email ?>" >
                     </div>
                   </div> <br>
 
                    <div class="form-group">
                     <label class="col-sm-3 control-label" for="form-control-3">Postal Address </label>
                     <div class="col-sm-9">
-                      <input id="form-control-3" class="form-control" type="text" name="paddr" value="<?php echo $paddr ?>" required>
+                      <input id="form-control-3" class="form-control" type="text" name="paddr" value="<?php echo $paddr ?>" >
                     </div>
                   </div> <br>
 

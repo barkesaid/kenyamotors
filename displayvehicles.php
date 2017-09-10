@@ -32,7 +32,7 @@
                     <!-- start test   -->
                     <?php
                     require("dbconnect.php");
-                    $query="SELECT vname,regno,chasis FROM vehicles" ;
+                    $query="SELECT vname,regno,chasis FROM vehicles ORDER BY datein DESC" ;
                         $result= $conn->query($query);
                         echo "<div class='card-body'>"; 
                             print "<table id='demo-datatables-1' class='table table-striped table-nowrap dataTable' cellspacing='0' width='100%''>";

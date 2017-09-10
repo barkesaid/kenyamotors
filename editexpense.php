@@ -54,9 +54,9 @@ while ($rows= $result->fetch_assoc())
 
                   <!-- start test  -->
                     <div class="form-group">
-                    <label class="col-sm-3 control-label" for="form-control-3">Id</label>
+                    <!-- <label class="col-sm-3 control-label" for="form-control-3">Id</label> -->
                     <div class="col-sm-9">
-                      <input id="form-control-3" class="form-control" type="text" name="id" value="<?php echo $id ?>">
+                      <input id="form-control-3" class="form-control" type="hidden" name="id" value="<?php echo $id ?>">
                     </div>
                   </div> <br>
                     <!-- end test -->
