@@ -1,0 +1,14 @@
+reports
+documentation (sequence diagrams, other screenshots)
+dashboards for manager&secretary (hp payments made/received, sales  made,expenses incurred, hp balances)
+make sure everything is working, the js for the updating is okay 
+Include validation techniques
+Dashboards for everyone immediately they log in
+
+Dashboard template (file:///C:/xampp1/htdocs/PROJECT/THEME/dashboard-2.html)
+You can include a sequence number (file:///C:/xampp1/htdocs/PROJECT/THEME/datatables-rowreorder.html)
+
+get icons to match the info on the dashboard 
+info selected from the tables should be monthly, get relevant functions
+
+----proceed with the dashboard
