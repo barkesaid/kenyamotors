@@ -1,0 +1,2 @@
+have a dynamic method to add/ remmove users from the recipient variable 
+for each client inserted, have a function add them to the recipient variable 
