@@ -14,7 +14,7 @@ $otherexpenses=$_POST["otherexpenses"];
 $details=$_POST["details"];
 
 
-$query="INSERT INTO vehicles(vname,chasis,regno,color,datein,bl,duty,costing,otherexpenses,details) VALUES ('$vname','$chasis','$regno','$color','$datein','$bl','$duty','$costing','$otherexpenses','details')";
+$query="INSERT INTO vehicles(vname,chasis,regno,color,datein,bl,duty,costing,otherexpenses,details) VALUES ('$vname','$chasis','$regno','$color','$datein','$bl','$duty','$costing','$otherexpenses','$details')";
 
 $result=$conn->query($query);
 if(!$result){

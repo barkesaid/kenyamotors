@@ -5,7 +5,7 @@
  <?php
     require_once ('sheader.html');
   ?> 
-  <title>Display Expenses</title>
+  <title>Display Installments</title>
 </head>
 <body>
 
@@ -13,10 +13,10 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">Edit Expense</span>
+              <span class="d-ib">Edit Installments Paid</span>
             </h1>
             <p class="title-bar-description">
-              <small>Select an Expense to Edit/Update</small>
+              <small>Select a payment to Edit/Update</small>
             </p>
           </div>
           <div class="row gutter-xs">
@@ -28,21 +28,21 @@
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                   </div>
-                  <strong>All Expenses</strong>
+                  <strong>All Installments Paid</strong>
                 </div>
                     <!-- start test   -->
                     <?php
                     require("dbconnect.php");
-                    $query="SELECT edate,amount,details,id FROM expenses ORDER BY edate DESC" ;
+                    $query="SELECT id,chasis,datepaid,amountpaid FROM installments ORDER BY id DESC";
                         $result= $conn->query($query);     
 
                         echo "<div class='card-body'>"; 
                             print "<table id='demo-datatables-1' class='table table-striped table-nowrap dataTable' cellspacing='0' width='100%''>";
                             print "<thead >" ;   
                             print "<tr>";                            
-                            print "<th>Date Incurred</th>" ; 
-                            print "<th>Amount</th>" ; 
-                            print "<th>Particulars/Details</th>" ;  
+                            print "<th>Chasis</th>" ; 
+                            print "<th>Date Paid</th>" ; 
+                            print "<th>Amount Paid</th>" ;  
                             print "<th>Action</th>";
                             print "</tr>"; 
                             print "</thead>" ; 
@@ -59,11 +59,11 @@
                                 //id for the expense to edit
                                 $value=$row["id"];
                                 print "<tr>";
-                                print "<td>"; print $row["edate"]; print "</td>" ;
-                                print "<td>"; print $row["amount"]; print "</td>"; 
-                                print "<td>"; print $row["details"]; print "</td>" ;
+                                print "<td>"; print $row["chasis"]; print "</td>" ;
+                                print "<td>"; print $row["datepaid"]; print "</td>"; 
+                                print "<td>"; print number_format($row["amountpaid"]); print "</td>" ;
                                  $editvalue1=$value;    
-                                 print "<td><a href='editexpense.php?editvalue1=$editvalue1'><span class='label label-outline-success'>Edit</span></a></td>";
+                                 print "<td><a href='editinstallment.php?editvalue1=$editvalue1'><span class='label label-outline-success'>Edit</span></a></td>";
                                print "</tr>";
 
                               }
@@ -75,9 +75,9 @@
 
                             print "<tfoot>";
                             print "<tr>";                           
-                            print "<th>Date Incurred</th>" ; 
-                            print "<th>Amount</th>" ; 
-                            print "<th>Particulars/Details</th>" ; 
+                            print "<th>Chasis</th>" ; 
+                            print "<th>Date Paid</th>" ; 
+                            print "<th>Amount Paid</th>" ;  
                             print "<th>Action</th>";
                             print "</tr>"; 
                             print "</tfoot>";

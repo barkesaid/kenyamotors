@@ -20,7 +20,7 @@
             <div class="row">
             <div class="col-md-9">
               <div class="demo-form-wrapper">
-                <form class="form form-horizontal" action="sellvehicle2.php" method="POST">
+                <form class="form form-horizontal" action="sellvehicle2.php" method="POST" autocomplete="off">
                   <div class="form-group">
                     <div class="form-group">
                     <label class="col-sm-3 control-label" for="form-control-3">Reg Number </label> 
@@ -28,7 +28,7 @@
                     <!-- another form for picking the car reg no -->
                       <form action="sellvehicle2.php" method="POST">
                       <?php
-                      $query = "SELECT regno,vname FROM vehicles ORDER by datein DESC";
+                      $query ="SELECT vehicles.regno,vehicles.vname FROM vehicles LEFT JOIN soldcars ON vehicles.chasis=soldcars.chasis WHERE soldcars.chasis IS NULL";
                       $result= $conn->query($query);
                       echo "<select class='form-control' name='regno'>";                        
                        echo '<option value>select a car</option>';
