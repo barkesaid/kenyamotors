@@ -1,21 +1,24 @@
-<!-- dselect and display all vehicles for the user to select and edit -->
+<!-- dselect and display all sales for the user to select and edit -->
 <!DOCTYPE html>
 <html>
 <head>
  <?php
     require_once ('sheader.html');
   ?>
-   <title>Display Vehicles</title>
+   <title>Display Sales</title>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<script src="src/jquery.table2excel.js"></script>
 </head>
 <body>
+<!-- start of test -->
       <div class="layout-content">
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">Edit Vehicle</span>
-            </h1><br>
+              <span class="d-ib">Edit Sale</span>
+            </h1>
             <p class="title-bar-description">
-              <small>Select a Vehicle to Edit/Update</small>
+              <small>Select a Sale to Edit/Update</small>
             </p>
           </div>
           <div class="row gutter-xs">
@@ -26,21 +29,56 @@
                     <button type="button" class="card-action card-toggler" title="Collapse"></button>
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
+                    <button onclick="download_file()">Export</button>
+
                   </div>
-                  <strong>All Vehicles</strong>
+                  <strong>All Sales</strong>
                 </div>
                     <!-- start test   -->
                     <?php
+                    // start test
+                     
+                    function download_file(){
+                      function cleanData(&$str)
+                      {
+                        $str = preg_replace("/\t/", "\\t", $str);
+                        $str = preg_replace("/\r?\n/", "\\n", $str);
+                        if(strstr($str, '"')) $str = '"' . str_replace('"', '""', $str) . '"';
+                      }
+
+                      // filename for download
+                      $filename = "website_data_" . date('Ymd') . ".xls";
+
+                      header("Content-Disposition: attachment; filename=\"$filename\"");
+                      header("Content-Type: application/vnd.ms-excel");
+
+                      $flag = false;
+                      $result = pg_query("SELECT * FROM table ORDER BY field") or die('Query failed!');
+                      while(false !== ($row = pg_fetch_assoc($result))) {
+                        if(!$flag) {
+                          // display field/column names as first row
+                          echo implode("\t", array_keys($row)) . "\r\n";
+                          $flag = true;
+                        }
+                        array_walk($row, __NAMESPACE__ . '\cleanData');
+                        echo implode("\t", array_values($row)) . "\r\n";
+                      }
+                      exit;
+
+                        }
+
+                    // end test
+
                     require("dbconnect.php");
-                    $query="SELECT vname,regno,chasis FROM vehicles ORDER BY datein DESC" ;
+                    $query="SELECT vehicles.vname,soldcars.datesold,vehicles.regno FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis" ;
                         $result= $conn->query($query);
                         echo "<div class='card-body'>"; 
                             print "<table id='demo-datatables-1' class='table table-striped table-nowrap dataTable' cellspacing='0' width='100%''>";
                             print "<thead >" ;   
                             print "<tr>";
                             print "<th>Car Name</th>" ; 
-                            print "<th>Registration Number</th>" ; 
-                            print "<th>Chasis Number</th>" ;  
+                            print "<th>Date Sold</th>" ; 
+                            print "<th>Registration Number</th>" ;  
                             print "<th>Action</th>";
                             print "</tr>"; 
                             print "</thead>" ; 
@@ -48,8 +86,8 @@
                             print "<tfoot>";
                             print "<tr>";
                             print "<th>Car Name</th>" ; 
+                            print "<th>Date Sold</th>" ; 
                             print "<th>Registration Number</th>" ; 
-                            print "<th>Chasis Number</th>" ; 
                             print "<th>Action</th>";
                             print "</tr>"; 
                             print "</tfoot>";
@@ -70,8 +108,8 @@
                                 print "<td>$value</td>"; 
                               }
                                
-                             $editvalue1=$value;                              
-                             print "<td><a href='editvehicle.php?editvalue1=$editvalue1'><span class='label label-outline-success'>Edit</span></a></td>";
+                            $editvalue1=$value;                              
+                            print "<td><a href='editsale.php?editvalue1=$editvalue1'><span class='label label-outline-success'>Edit</span></a></td>";
                             print "</tr>" ;
                             }
                             print "</tbody>" ;                          

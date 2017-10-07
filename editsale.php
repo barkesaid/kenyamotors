@@ -5,13 +5,30 @@
 <head>
  <?php  require_once ('sheader.html');  ?>
   <title>Edit Sale</title>
+  <script type="text/javascript">
+    function sayHello() {
+    alert("Your Updates have been saved!")
+    }
+
+    function getbalance(){
+      var balance= document.getElementById("bal").value;
+      var deposit= document.getElementById("dep").value;
+      var sellingprice= document.getElementById("sp").value;
+
+      balance = sellingprice-deposit;
+      document.getElementById("bal").focus();
+      document.getElementById("bal").value=balance;
+    }
+
+
+  </script>
 </head>
 <body>
   <div class="layout-content">
         <div class="layout-content-body">
           <div class="title-bar">           
             <h1 class="title-bar-title">
-              <span class="d-ib" style="position: center">Update Vehicle</span>
+              <span class="d-ib" style="position: center">Update Sale</span>
             </h1>    <br>
             <!-- this is a test -->
              </div>
@@ -20,7 +37,7 @@
                 extract($_GET);
                 $saletoedit=$_GET["editvalue1"]; 
 // test
-                $query="SELECT vehicles.regno,vehicles.chasis,vehicles.vname,soldcars.datesold,soldcars.sellingprice,soldcars.deposit,soldcars.balance,soldcars.duedate,soldcars.client_idno FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis WHERE vehicles.regno='$saletoedit'";
+                $query="SELECT vehicles.regno,vehicles.chasis,vehicles.vname,soldcars.datesold,soldcars.sellingprice,soldcars.deposit,soldcars.balance,soldcars.installmentamount,soldcars.duedate,soldcars.client_idno FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis WHERE vehicles.regno='$saletoedit'";
                 $result=$conn->query($query);
                 if(!$result){ echo "".$conn->error; }
                  else {
@@ -33,11 +50,12 @@
                     $sellingprice=$rows['sellingprice'];
                     $deposit=$rows['deposit'];
                     $balance=$rows['balance'];
+                    $installmentamount=$rows['installmentamount'];
                     $duedate=$rows['duedate'];
                     $client_idno=$rows['client_idno'];
                 }
 // another test
-          $query1="SELECT soldcars.client_idno,customer.cname,customer.cname,customer.phoneno,customer.email FROM soldcars INNER JOIN customer ON soldcars.client_idno=customer.idno WHERE soldcars.client_idno='$client_idno'";
+          $query1="SELECT soldcars.client_idno,customer.cname,customer.phoneno,customer.email FROM soldcars INNER JOIN customer ON soldcars.client_idno=customer.idno WHERE soldcars.client_idno='$client_idno'"; 
                 $result1=$conn->query($query1);
                 if(!$result){
 
@@ -49,9 +67,10 @@
                 // $result=$mysqli->query( "SELECT * FROM customer WHERE idno='$idtoedit'");
                 while ($rows1= $result1->fetch_assoc())
                   { 
-                    $cname=$rows['cname']; 
-                    $phoneno=$rows['phoneno'];
-                    $email= $rows['email']; 
+                    $dontuse1=$rows1['client_idno'];
+                    $cname=$rows1['cname']; 
+                    $phoneno=$rows1['phoneno'];
+                    $email= $rows1['email']; 
                 }
 
           $query2="SELECT broker.brokername,broker.brokercommission,broker.brokerphone FROM soldcars INNER JOIN broker ON soldcars.chasis=broker.chasis WHERE broker.chasis='$chasis'";
@@ -66,9 +85,9 @@
                 // $result=$mysqli->query( "SELECT * FROM customer WHERE idno='$idtoedit'");
                 while ($rows2= $result2->fetch_assoc())
                   { 
-                    $brokername=$rows['brokername']; 
-                    $brokercommission=$rows['brokercommission'];
-                    $brokerphone= $rows['brokerphone']; 
+                    $brokername=$rows2['brokername']; 
+                    $brokercommission=$rows2['brokercommission'];
+                    $brokerphone= $rows2['brokerphone']; 
                 }
                 //another test
 
@@ -81,20 +100,21 @@
             <div class="col-md-9">
               <div class="demo-form-wrapper">
 
-              <form class="form form-horizontal" action="postsale.php" method="POST">
+              <form class="form form-horizontal" action="updatesale.php" method="POST" autocomplete="off">
                   <div class="form-group">
                     <div class="form-group">
                     <label class="col-sm-3 control-label" for="form-control-3">Reg Number </label> 
                     <div class="col-sm-9"> 
                     <input id="form-control-3" class="form-control" type="text" name="regno" value="<?php echo $regno ?>">                   
-                     </div>
-                  </div> <br>
+                     </div></div>
+                     <!-- hide this field -->
+                
                     <div class="form-group">
-                    <label class="col-sm-3 control-label" for="form-control-3">Chasis Number </label>
+                   <!--  <label class="col-sm-3 control-label" for="form-control-3">Chasis Number </label>  -->
                     <div class="col-sm-9">        
-                    <input id="form-control-3" class="form-control" type="text" name="chasis" value="<?php echo $chasis ?>">
-                    </div></div>
-                    <br>
+                    <input id="form-control-3" class="form-control" type="hidden" name="chasis" value="<?php echo $chasis ?>">
+                    </div> </div>
+                    <br> 
 
                    <div class="form-group">
                     <label class="col-sm-3 control-label" for="form-control-3">Car Name </label>
@@ -126,9 +146,17 @@
                    <div class="form-group">
                     <label class="col-sm-3 control-label" for="form-control-3">Balance</label>
                     <div class="col-sm-9">
-                      <input id="bal" id="form-control-3" class="form-control" type="text"  name="balance" value="<?php echo $balance ?>" />
+                      <input id="bal" id="form-control-3" class="form-control" type="text"  name="balance" value="<?php echo $balance ?>"  onclick="return getbalance()" />
                     </div>
                   </div> <br>
+
+                  <div class="form-group">
+                    <label class="col-sm-3 control-label" for="form-control-3">Installment Amount</label>
+                    <div class="col-sm-9">
+                      <input id="bal" id="form-control-3" class="form-control" type="text"  name="installmentamount" value="<?php echo $installmentamount ?>"   />
+                    </div>
+                  </div> <br>
+
 
                    <div class="form-group">
                     <label class="col-sm-3 control-label" for="form-control-3">Installment Due Date </label>
@@ -188,11 +216,9 @@
 
                   </div>                
              <div style="padding-left:700px">                
-                <input type="submit" name="submit" value="Update Sale">             
+                <input type="submit" name="submit" onclick="sayHello()" value="Update Sale">             
                 </div>
                    
-
-
     
               </div>
 

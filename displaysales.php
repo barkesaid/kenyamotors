@@ -33,7 +33,7 @@
                     <!-- start test   -->
                     <?php
                     require("dbconnect.php");
-                    $query="SELECT vehicles.vname,soldcars.datesold,vehicles.regno FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis" ;
+                    $query="SELECT vehicles.vname,soldcars.datesold,vehicles.regno FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis ORDER BY datesold DESC" ;
                         $result= $conn->query($query);
                         echo "<div class='card-body'>"; 
                             print "<table id='demo-datatables-1' class='table table-striped table-nowrap dataTable' cellspacing='0' width='100%''>";
@@ -72,7 +72,7 @@
                               }
                                
                             $editvalue1=$value;                              
-                            print "<td><a href='editsale.php?editvalue1=$editvalue1'><span class='label label-outline-success'>Edit $editvalue1 </span></a></td>";
+                            print "<td><a href='editsale.php?editvalue1=$editvalue1'><span class='label label-outline-success'>Edit</span></a></td>";
                             print "</tr>" ;
                             }
                             print "</tbody>" ;                          

@@ -1,26 +1,27 @@
 <?php
 require("dbconnect.php");
 extract($_POST);
-extract($_GET);
 
+$id= $_POST["id"]; echo $id;
 $edate=$_POST["edate"]; echo $edate;
 $amount=$_POST["amount"]; echo $amount;
 $details=$_POST["details"]; echo $details;
 
 // this is a test
-$query="SELECT id FROM expenses WHERE expenses.details='$details'";
-$result=$conn->query($query);
-if(!$result){
+// $query="SELECT id FROM expenses WHERE expenses.details='$details'";
+// $result=$conn->query($query);
+// if(!$result){
 
-  echo "".$conn->error;
+//   echo "".$conn->error;
   
-}
-else {
-while ($rows= $result->fetch_assoc())
-  { 
-    $id= $rows['id']; 
-   echo $id;
-}
+// }
+// else {
+// while ($rows= $result->fetch_assoc())
+//   { 
+//     $id= $rows['id']; 
+//    echo " this is the id"; echo $id;
+// }
+// }
 
 //end of test
 
@@ -37,7 +38,7 @@ if(!$result1){
 else {
 	echo "Record entered successfully";
 }
-}
-//header('Location:http://localhost/Learn/daikyo/carform.php');
+
+header('Location:http://localhost/kenyamotors/displayexpenses.php');
 
 ?>

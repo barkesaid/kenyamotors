@@ -7,6 +7,12 @@
     require_once ('sheader.html');
   ?>
   <title>Edit Vehicle</title>
+  <title>Edit Customer</title>
+    <script type="text/javascript">
+    function sayHello() {
+    alert("Your Updates have been saved!")
+    }
+    </script>
 </head>
 <body>
   <div class="layout-content">
@@ -51,7 +57,7 @@
             <div class="row">
             <div class="col-md-9">
               <div class="demo-form-wrapper">
-                    <form class="form form-horizontal" action="updatevehicle.php" method="POST">
+                    <form class="form form-horizontal" action="updatevehicle.php" method="POST" autocomplete="off">
                   <div class="form-group">
                   <div class="form-group">
                     <label class="col-sm-3 control-label" for="form-control-3">Car Name </label>
@@ -60,17 +66,17 @@
                     </div>
                   </div> <br>
 
-                    <div class="form-group">
-                    <label class="col-sm-3 control-label" for="form-control-3">Chasis Number </label>
-                    <div class="col-sm-9">
-                      <input id="form-control-3" class="form-control" type="text" name="chasis" value="<?php echo $chasis  ?>">
-                    </div>
-                  </div> <br>
+                    <!-- <div class="form-group"> -->
+                    <!-- <label class="col-sm-3 control-label" for="form-control-3">  </label>
+                    <div class="col-sm-9"> -->
+                      <input id="form-control-3" class="form-control" type="hidden" name="chasis" value="<?php echo $chasis  ?>" >
+                    <!-- </div>
+                  </div> <br> -->
 
                    <div class="form-group">
                     <label class="col-sm-3 control-label" for="form-control-3">Registration Number </label>
                     <div class="col-sm-9">
-                      <input id="form-control-3" class="form-control" type="text" name="regno" value="<?php echo $regno  ?>">
+                      <input id="form-control-3" class="form-control" type="text" name="regno" value="<?php echo $regno  ?>" >
                     </div>
                   </div> <br>
 
@@ -98,7 +104,7 @@
                      <div class="form-group">
                     <label class="col-sm-3 control-label" for="form-control-3">Duty Paid </label>
                     <div class="col-sm-9">
-                      <input id="form-control-3" class="form-control" type="text" name="duty" value="<?php echo $duty ?>">
+                      <input id="form-control-3" class="form-control" type="text" name="duty" value="<?php echo $duty ?>" >
                     </div>
                   </div> <br>
 
@@ -127,7 +133,7 @@
                   </div>
                 
                 <div style="padding-left:760px">                 
-                <input type="submit" name="submit" value="Save">               
+                <input type="submit" name="submit" onclick="sayHello()" value="Update">               
                 </div>
 
                   </form>

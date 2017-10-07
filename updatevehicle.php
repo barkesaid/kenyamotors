@@ -33,5 +33,5 @@ else {
 	echo "Record entered successfully";
 }
 
-
+header('Location:http://localhost/kenyamotors/displayvehicles.php');
 ?>
