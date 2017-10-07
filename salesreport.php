@@ -11,12 +11,12 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
+
               <span class="d-ib">Sales Report</span>
             </h1>
              <p class="title-bar-description">
              <!--  <small>Select a Sale to view</small> -->
             </p>
-
           </div>
           <div class="row gutter-xs">
             <div class="col-xs-12">
@@ -27,6 +27,7 @@
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                   </div>
+                  
                   <strong></strong>
                 </div>
                 <div class="card-body">
@@ -85,6 +86,7 @@
                                 }
                                      ?>
                     <!-- end test -->                
+
                     </tbody>
                   </table>
                 </div>

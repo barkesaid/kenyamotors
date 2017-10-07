@@ -5,7 +5,9 @@
 </head>
 <?php 
 require("dbconnect.php");
+
 // require_once ('lheader.html');
+
 extract($_POST);
 $username = ($_POST['username']);
 $password = ($_POST['password']);
@@ -16,7 +18,9 @@ $password = ($_POST['password']);
       if(($result)){ 
         $row=$result->fetch_row();
         if(trim($row[0])==trim($password)){
+
           //echo "password valid!";
+
           $query1="SELECT privilege FROM login WHERE username='$username'";
           $result1= $conn->query($query1);
               if(($result1)){
@@ -42,10 +46,12 @@ $password = ($_POST['password']);
       }//end of if
                        else {  echo "" .$conn->error;   }
                     }
+
                          else {  
                           // echo "<h3><strong>Wrong password/username combination</strong></h3>";   
                           header('Location:http://localhost/kenyamotors/wrongpassword.php');   
                             }
+
                                 }
                           else {    echo "" .$conn->error;   }
                          }

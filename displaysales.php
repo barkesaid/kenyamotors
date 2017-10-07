@@ -27,7 +27,6 @@
                     <button type="button" class="card-action card-toggler" title="Collapse"></button>
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
-                   
                   </div>
                   <strong>All Sales</strong>
                 </div>
