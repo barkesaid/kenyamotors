@@ -6,6 +6,13 @@
     require_once ('sheader.html');
   ?>
   <title>Add Customer</title>
+
+  <script type="text/javascript">
+    function sayHello() {
+    alert("The new record has been saved!")
+    }
+  </script>
+
 </head>
 <body>
   <div class="layout-content">
@@ -80,7 +87,9 @@
                   </div>
                 
                 <div style="padding-left:760px">                 
-                <input type="submit" name="submit" value="Save">               
+
+                <input type="submit" name="submit" onclick="sayHello()" value="Save">               
+
                 </div>
 
                   </form>

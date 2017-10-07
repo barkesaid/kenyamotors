@@ -1,3 +1,4 @@
+<!-- expenses report -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,11 +12,11 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-
-              <span class="d-ib">Sales Report</span>
+              <span class="d-ib">Expenses    
+              </span>
             </h1>
              <p class="title-bar-description">
-             <!--  <small>Select a Sale to view</small> -->
+              <small>Select an expense to view</small>
             </p>
           </div>
           <div class="row gutter-xs">
@@ -27,34 +28,27 @@
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                   </div>
-                  
-                  <strong></strong>
+                  <strong>Expenses Report</strong>
                 </div>
                 <div class="card-body">
-                  <!-- <table id="demo-datatables-buttons-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%"> -->
-                    <table id="demo-datatables-buttons-2" class="table table-bordered table-striped table-nowrap dataTable" cellspacing="0" width="100%">
+              <table id="demo-datatables-buttons-2" class="table table-bordered table-striped table-nowrap dataTable" cellspacing="0" width="100%">
                     <thead>
                     <thead>
                       <tr>
-                        <th>Vehicle Name</th>
-                        <th>Chasis Number</th>
-                        <th>Registration Number</th>
-                        <th>Date Sold</th>
-                        <th>Selling Price</th>
-                        <!-- <th>Action</th> -->
+                        <th>Date Incurred</th>
+                        <th>Amount</th>
+                        <th>Details</th>
+                        <th>Action</th>
                       </tr>
                     </thead>
-                   <!-- removed the table footer from here -->
-                    <tfoot>
-                       <button onclick="window.print()">Print</button>
-                    </tfoot>
+                  
 
                        <tbody>
 
                     <!-- start test -->
                      <?php
                     require("dbconnect.php");
-                    $query="SELECT vehicles.chasis,vehicles.vname,soldcars.datesold,vehicles.regno,soldcars.sellingprice,soldcars.id FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis ORDER BY `soldcars`.`datesold` DESC";
+                    $query="SELECT id,edate,amount,details from expenses ORDER BY edate DESC";
                         $result= $conn->query($query);                                   
                               if(!($result))
                             {
@@ -68,14 +62,11 @@
                                 //id for the expense to edit
                                 $value=$row["id"];
                                 print "<tr>";
-                                print "<td>"; print $row["vname"]; print "</td>" ;
-                                print "<td>"; print $row["chasis"]; print "</td>" ;
-                                print "<td>"; print $row["regno"]; print "</td>" ;
-                                print "<td>"; print $row["datesold"]; print "</td>" ;
-                                print "<td>"; print number_format($row["sellingprice"]); print "</td>"; 
-                                $editvalue1=$value;    
-
-                                // print "<td><a href='viewasale.php?editvalue1=$editvalue1'><span class='label label-outline-success'>View</span></a></td>";
+                                print "<td>"; print $row["edate"]; print "</td>" ;
+                                print "<td>"; print number_format($row["amount"]); print "</td>" ;
+                                print "<td>"; print $row["details"]; print "</td>" ; 
+                                $editvalue1=$value;  
+                                print "<td><a href='viewanexpense.php?editvalue1=$editvalue1'><span class='label label-outline-success'>View</span></a></td>";
                                print "</tr>";
 
                               }
@@ -86,7 +77,7 @@
                                 }
                                      ?>
                     <!-- end test -->                
-
+                     
                     </tbody>
                   </table>
                 </div>

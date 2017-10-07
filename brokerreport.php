@@ -1,3 +1,4 @@
+<!-- broker reports -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +12,12 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-
-              <span class="d-ib">Sales Report</span>
+              <span class="d-ib">Costing Report</span>
             </h1>
              <p class="title-bar-description">
              <!--  <small>Select a Sale to view</small> -->
             </p>
+
           </div>
           <div class="row gutter-xs">
             <div class="col-xs-12">
@@ -27,7 +28,6 @@
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                   </div>
-                  
                   <strong></strong>
                 </div>
                 <div class="card-body">
@@ -36,11 +36,12 @@
                     <thead>
                     <thead>
                       <tr>
+                        <th>Broker Name</th>
+                        <th>Broker Contact</th>
+                        <th>Broker Commission </th>
                         <th>Vehicle Name</th>
-                        <th>Chasis Number</th>
                         <th>Registration Number</th>
-                        <th>Date Sold</th>
-                        <th>Selling Price</th>
+                        <th>Vehicle Selling Price</th>
                         <!-- <th>Action</th> -->
                       </tr>
                     </thead>
@@ -54,7 +55,7 @@
                     <!-- start test -->
                      <?php
                     require("dbconnect.php");
-                    $query="SELECT vehicles.chasis,vehicles.vname,soldcars.datesold,vehicles.regno,soldcars.sellingprice,soldcars.id FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis ORDER BY `soldcars`.`datesold` DESC";
+                    $query="SELECT broker.brokername, broker.brokerphone,broker.brokercommission,soldcars.chasis,soldcars.sellingprice FROM broker INNER JOIN soldcars ON broker.chasis=soldcars.chasis ORDER BY soldcars.datesold DESC";
                         $result= $conn->query($query);                                   
                               if(!($result))
                             {
@@ -66,27 +67,54 @@
                             if($result->num_rows>0){
                               while($row=$result->fetch_assoc()) {
                                 //id for the expense to edit
-                                $value=$row["id"];
+                                 $chasis=$row["chasis"];
                                 print "<tr>";
-                                print "<td>"; print $row["vname"]; print "</td>" ;
-                                print "<td>"; print $row["chasis"]; print "</td>" ;
-                                print "<td>"; print $row["regno"]; print "</td>" ;
-                                print "<td>"; print $row["datesold"]; print "</td>" ;
+                                print "<td>"; print $row["brokername"]; print "</td>" ;
+                                print "<td>"; print $row["brokerphone"]; print "</td>" ;
+                                print "<td>"; print number_format($row["brokercommission"]); print "</td>" ;
                                 print "<td>"; print number_format($row["sellingprice"]); print "</td>"; 
-                                $editvalue1=$value;    
+                                // $editvalue1=$value;    
 
                                 // print "<td><a href='viewasale.php?editvalue1=$editvalue1'><span class='label label-outline-success'>View</span></a></td>";
-                               print "</tr>";
+                               // print "</tr>";
 
+                              }
+
+                               // start test
+                            $query1="SELECT vname,regno FROM vehicles WHERE chasis='$chasis'";
+                            $result1= $conn->query($query1);                                   
+                              if(!($result1)){ echo"<p>Sorry but there seem to be no entry</p>" ;}
+                            
+                             else
+                            {  
+                          
+                            if($result1->num_rows>0){
+                              while($row1=$result1->fetch_assoc()) {
+                                print "<tr>";
+                                print "<td>"; print $row1["vname"]; print "</td>" ;
+                                print "<td>"; print $row1["regno"]; print "</td>";
+                                print "</tr>";
                               }
                             }
                             else {
                               echo "0 results fetched";
                             }
                                 }
+
+                              // end test
+
+
+                            }
+
+                            else {
+                              echo "0 results fetched";
+                            }
+                                }
+
+
+                             
                                      ?>
                     <!-- end test -->                
-
                     </tbody>
                   </table>
                 </div>

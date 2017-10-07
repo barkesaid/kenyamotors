@@ -1,3 +1,6 @@
+<!-- customer report -->
+<!-- customers and the vehicles that they purchased -->
+<!-- ghave a way of selcting the customer names and the vehicles they purchased -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,12 +14,12 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-
-              <span class="d-ib">Sales Report</span>
+              <span class="d-ib">Costing Report</span>
             </h1>
              <p class="title-bar-description">
              <!--  <small>Select a Sale to view</small> -->
             </p>
+
           </div>
           <div class="row gutter-xs">
             <div class="col-xs-12">
@@ -27,7 +30,6 @@
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                   </div>
-                  
                   <strong></strong>
                 </div>
                 <div class="card-body">
@@ -36,11 +38,12 @@
                     <thead>
                     <thead>
                       <tr>
-                        <th>Vehicle Name</th>
                         <th>Chasis Number</th>
                         <th>Registration Number</th>
-                        <th>Date Sold</th>
-                        <th>Selling Price</th>
+                        <th>Vehicle Name</th>
+                        <th>Bill of Landing</th>
+                        <th>Arrival Date</th>
+                        <th>Costing(USD)</th>
                         <!-- <th>Action</th> -->
                       </tr>
                     </thead>
@@ -54,7 +57,7 @@
                     <!-- start test -->
                      <?php
                     require("dbconnect.php");
-                    $query="SELECT vehicles.chasis,vehicles.vname,soldcars.datesold,vehicles.regno,soldcars.sellingprice,soldcars.id FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis ORDER BY `soldcars`.`datesold` DESC";
+                    $query="SELECT chasis,regno,vname,bl,datein,costing from vehicles ORDER BY datein DESC";
                         $result= $conn->query($query);                                   
                               if(!($result))
                             {
@@ -66,14 +69,15 @@
                             if($result->num_rows>0){
                               while($row=$result->fetch_assoc()) {
                                 //id for the expense to edit
-                                $value=$row["id"];
+                                // $value=$row["id"];
                                 print "<tr>";
-                                print "<td>"; print $row["vname"]; print "</td>" ;
                                 print "<td>"; print $row["chasis"]; print "</td>" ;
                                 print "<td>"; print $row["regno"]; print "</td>" ;
-                                print "<td>"; print $row["datesold"]; print "</td>" ;
-                                print "<td>"; print number_format($row["sellingprice"]); print "</td>"; 
-                                $editvalue1=$value;    
+                                print "<td>"; print $row["vname"]; print "</td>" ;
+                                print "<td>"; print $row["bl"]; print "</td>" ;
+                                print "<td>"; print $row["datein"]; print "</td>" ;
+                                print "<td>"; print number_format($row["costing"]); print "</td>"; 
+                                // $editvalue1=$value;    
 
                                 // print "<td><a href='viewasale.php?editvalue1=$editvalue1'><span class='label label-outline-success'>View</span></a></td>";
                                print "</tr>";
@@ -86,7 +90,6 @@
                                 }
                                      ?>
                     <!-- end test -->                
-
                     </tbody>
                   </table>
                 </div>

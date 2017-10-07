@@ -427,7 +427,9 @@
               </div>
             </div>
 <!-- end test -->
-            <div class="col-md-4 col-md-pull-8">
+<!-- comment it out for milestone 2 -->
+
+   <!--          <div class="col-md-4 col-md-pull-8">
               <div class="card">
                 <div class="card-header">
                   <div class="card-actions">
@@ -486,7 +488,9 @@
                   </ul>
                 </div>
               </div>
-            </div>
+
+            </div> -->
+
           </div>
         </div>
       </div>
