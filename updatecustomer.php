@@ -24,6 +24,6 @@ else {
 	echo "Record entered successfully";
 }
 
-//header('Location:http://localhost/Learn/daikyo/carform.php');
+header('Location:http://localhost/kenyamotors/displaycustomers.php');
 
 ?>

@@ -16,7 +16,7 @@
           <div class="title-bar">
             <h1 class="title-bar-title">
               <span class="d-ib">Edit Customer</span>
-            </h1>
+            </h1><br>
             <p class="title-bar-description">
               <small>Select a Customer to Edit/Update</small>
             </p>
@@ -30,7 +30,7 @@
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                   </div>
-                  <strong>All Vehicles</strong>
+                  <strong>All Customers</strong>
                 </div>
                     <!-- start test   -->
                     <?php
