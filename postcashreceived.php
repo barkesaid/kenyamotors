@@ -1,3 +1,4 @@
+<!-- post received cash -->
 <?php
 require("dbconnect.php");
 extract($_POST);
@@ -8,7 +9,7 @@ $details=$_POST["details"];
 
 
 
-$query="INSERT INTO expenses (id,edate,amount,details) VALUES (NULL, '$edate', '$amount', '$details')";
+$query="INSERT INTO addcash (id,cdate,amount,details) VALUES (NULL, '$edate', '$amount', '$details')";
 $result=$conn->query($query);
 if(!$result){
 
@@ -19,5 +20,5 @@ else {
 	echo "Record entered successfully";
 }
 
-header('Location:http://localhost/kenyamotors/addexpense.php');
+header('Location:http://localhost/kenyamotors/receivecash.php');
 ?>

@@ -3,9 +3,9 @@
 <html>
 <head>
  <?php
-    require_once ('sheader.html');
+    require_once ('mheader.html');
   ?> 
-  <title>Display Expenses</title>
+  <title>Display Cash Given Out</title>
 </head>
 <body>
 
@@ -13,10 +13,10 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">Edit Expense</span>
+              <span class="d-ib">Edit the Cash Given out</span>
             </h1>
             <p class="title-bar-description">
-              <small>Select an Expense to Edit/Update</small>
+              <small>Select an entry to Edit/Update</small>
             </p>
           </div>
           <div class="row gutter-xs">
@@ -28,19 +28,19 @@
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                   </div>
-                  <strong>All Expenses</strong>
+                  <strong>All Entries</strong>
                 </div>
                     <!-- start test   -->
                     <?php
                     require("dbconnect.php");
-                    $query="SELECT edate,amount,details,id FROM expenses ORDER BY edate DESC" ;
+                    $query="SELECT cdate,amount,details,id FROM givecash" ;
                         $result= $conn->query($query);     
 
                         echo "<div class='card-body'>"; 
                             print "<table id='demo-datatables-1' class='table table-striped table-nowrap dataTable' cellspacing='0' width='100%''>";
                             print "<thead >" ;   
                             print "<tr>";                            
-                            print "<th>Date Incurred</th>" ; 
+                            print "<th>Date Given Out</th>" ; 
                             print "<th>Amount</th>" ; 
                             print "<th>Particulars/Details</th>" ;  
                             print "<th>Action</th>";
@@ -49,7 +49,7 @@
                               
                               if(!($result))
                             {
-                            echo"<p>Sorry but there seem to be no expenses</p>" ; 
+                            echo"<p>Sorry but there seem to be no entry</p>" ; 
                             }
                           else
                             {  
@@ -59,11 +59,11 @@
                                 //id for the expense to edit
                                 $value=$row["id"];
                                 print "<tr>";
-                                print "<td>"; print $row["edate"]; print "</td>" ;
+                                print "<td>"; print $row["cdate"]; print "</td>" ;
                                 print "<td>"; print $row["amount"]; print "</td>"; 
                                 print "<td>"; print $row["details"]; print "</td>" ;
                                  $editvalue1=$value;    
-                                 print "<td><a href='editexpense.php?editvalue1=$editvalue1'><span class='label label-outline-success'>Edit</span></a></td>";
+                                 print "<td><a href='editcashgiven.php?editvalue1=$editvalue1'><span class='label label-outline-success'>Edit</span></a></td>";
                                print "</tr>";
 
                               }
