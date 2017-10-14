@@ -94,7 +94,7 @@
                 <p>
                   <small class="text-muted">Income Statement</small>
                 </p>
-                <a href=""><button class="btn btn-outline-primary" type="button">Income</button></a>
+                <a href="incomestat.php"><button class="btn btn-outline-primary" type="button">Income</button></a>
           </div>
           </div>
 
