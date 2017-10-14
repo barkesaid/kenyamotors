@@ -12,24 +12,22 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">Costing Report</span>
+              <span class="d-ib">Broker Report</span>
             </h1>
-             <p class="title-bar-description">
-             <!--  <small>Select a Sale to view</small> -->
-            </p>
+             <p class="title-bar-description"> Brokers and the vehicles they sold </p>
 
           </div>
           <div class="row gutter-xs">
             <div class="col-xs-12">
               <div class="card">
-                <div class="card-header">
+             <!--    <div class="card-header">
                   <div class="card-actions">
                     <button type="button" class="card-action card-toggler" title="Collapse"></button>
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                   </div>
                   <strong></strong>
-                </div>
+                </div> -->
                 <div class="card-body">
                   <!-- <table id="demo-datatables-buttons-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%"> -->
                     <table id="demo-datatables-buttons-2" class="table table-bordered table-striped table-nowrap dataTable" cellspacing="0" width="100%">
@@ -45,17 +43,17 @@
                         <!-- <th>Action</th> -->
                       </tr>
                     </thead>
-                   <!-- removed the table footer from here -->
                     <tfoot>
-                       <button onclick="window.print()">Print</button>
-                    </tfoot>
+                           <button style="float: right;" onclick="window.print()"> Print This </button> <br>
+                           <br>
+                        </tfoot>
 
                        <tbody>
 
                     <!-- start test -->
                      <?php
                     require("dbconnect.php");
-                    $query="SELECT broker.brokername, broker.brokerphone,broker.brokercommission,soldcars.chasis,soldcars.sellingprice FROM broker INNER JOIN soldcars ON broker.chasis=soldcars.chasis ORDER BY soldcars.datesold DESC";
+                    $query="SELECT broker.brokername, broker.brokerphone,broker.brokercommission,soldcars.chasis, vehicles.regno,vehicles.vname, soldcars.sellingprice,vehicles.regno FROM broker JOIN soldcars ON broker.chasis=soldcars.chasis JOIN vehicles ON vehicles.chasis= broker.chasis ORDER BY soldcars.datesold DESC";
                         $result= $conn->query($query);                                   
                               if(!($result))
                             {
@@ -72,6 +70,8 @@
                                 print "<td>"; print $row["brokername"]; print "</td>" ;
                                 print "<td>"; print $row["brokerphone"]; print "</td>" ;
                                 print "<td>"; print number_format($row["brokercommission"]); print "</td>" ;
+                                print "<td>"; print $row["vname"]; print "</td>" ;
+                                print "<td>"; print $row["regno"]; print "</td>" ;
                                 print "<td>"; print number_format($row["sellingprice"]); print "</td>"; 
                                 // $editvalue1=$value;    
 
@@ -79,29 +79,6 @@
                                // print "</tr>";
 
                               }
-
-                               // start test
-                            $query1="SELECT vname,regno FROM vehicles WHERE chasis='$chasis'";
-                            $result1= $conn->query($query1);                                   
-                              if(!($result1)){ echo"<p>Sorry but there seem to be no entry</p>" ;}
-                            
-                             else
-                            {  
-                          
-                            if($result1->num_rows>0){
-                              while($row1=$result1->fetch_assoc()) {
-                                print "<tr>";
-                                print "<td>"; print $row1["vname"]; print "</td>" ;
-                                print "<td>"; print $row1["regno"]; print "</td>";
-                                print "</tr>";
-                              }
-                            }
-                            else {
-                              echo "0 results fetched";
-                            }
-                                }
-
-                              // end test
 
 
                             }

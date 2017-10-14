@@ -14,9 +14,7 @@
             <h1 class="title-bar-title">
               <span class="d-ib">Stock Report </span>
             </h1>
-             <p class="title-bar-description">
-             <!--   -->
-            </p>
+             <p class="title-bar-description"> Vehicles available for sale </p>
           </div>
           <div class="row gutter-xs">
             <div class="col-xs-12">

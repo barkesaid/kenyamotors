@@ -16,7 +16,7 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">Costing Report</span>
+              <span class="d-ib">Customer Report</span>
             </h1>
              <p class="title-bar-description">
               <small>Customers who purchased vehicles</small>
@@ -40,10 +40,12 @@
                     <thead>
                     <thead>
                       <tr>
-                        <th>Chasis Number</th>
                         <th>Customer ID Number</th>
                         <th>Customer Name</th>
                         <th>Customer Contact</th>
+                        <th>Vehicle Purchased</th> 
+                         <th>Registration Number</th> 
+                        <th>Date Purchased</th>                     
                         <!-- <th>Action</th> -->
                       </tr>
                     </thead>
@@ -58,7 +60,7 @@
                     <!-- start test -->
                      <?php
                     require("dbconnect.php");
-                    $query="SELECT soldcars.chasis,customer.cname,customer.phoneno,customer.idno FROM soldcars LEFT JOIN customer ON soldcars.client_idno=customer.idno";
+                    $query="SELECT soldcars.chasis,vehicles.vname,vehicles.regno,soldcars.datesold,customer.cname,customer.phoneno,customer.idno FROM soldcars JOIN customer ON customer.idno= soldcars.client_idno JOIN vehicles ON soldcars.chasis= vehicles.chasis ORDER BY soldcars.datesold DESC";
                         $result= $conn->query($query);                                   
                               if(!($result))
                             {
@@ -72,12 +74,13 @@
                                 //id for the expense to edit
                                 // $value=$row["id"];
                                 print "<tr>";
-                                print "<td>"; print $row["chasis"]; print "</td>" ;
+                                print "<td>"; print $row["idno"]; print "</td>" ;
+                                print "<td>"; print $row["cname"]; print "</td>" ;
+                                print "<td>"; print $row["phoneno"]; print "</td>" ;
                                 print "<td>"; print $row["regno"]; print "</td>" ;
                                 print "<td>"; print $row["vname"]; print "</td>" ;
-                                print "<td>"; print $row["bl"]; print "</td>" ;
-                                print "<td>"; print $row["datein"]; print "</td>" ;
-                                print "<td>"; print number_format($row["costing"]); print "</td>"; 
+                                print "<td>"; print $row["datesold"]; print "</td>" ;
+
                                 // $editvalue1=$value;    
 
                                 // print "<td><a href='viewasale.php?editvalue1=$editvalue1'><span class='label label-outline-success'>View</span></a></td>";
