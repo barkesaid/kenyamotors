@@ -19,7 +19,7 @@
               <span class="d-ib">Customer Report</span>
             </h1>
              <p class="title-bar-description">
-              <small>Customers who purchased vehicles</small>
+            <!--   <small>Customers who purchased vehicles</small> -->
             </p>
 
           </div>
@@ -77,8 +77,8 @@
                                 print "<td>"; print $row["idno"]; print "</td>" ;
                                 print "<td>"; print $row["cname"]; print "</td>" ;
                                 print "<td>"; print $row["phoneno"]; print "</td>" ;
-                                print "<td>"; print $row["regno"]; print "</td>" ;
                                 print "<td>"; print $row["vname"]; print "</td>" ;
+                                print "<td>"; print $row["regno"]; print "</td>" ;                                
                                 print "<td>"; print $row["datesold"]; print "</td>" ;
 
                                 // $editvalue1=$value;    

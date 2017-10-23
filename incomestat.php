@@ -26,11 +26,11 @@
                     <thead>
 
                     <tr>
-                    <th style=" text-align: center;">Income Statement</th>
+                  <!--   <th style=" text-align: center;">Income Statement</th> -->
                     </tr>
 
                       <tr>
-                        <th>Deposit from sales</th>
+                        <th>Deposit from motor vehicle sales</th>
     
                     <?php
                     // deposit from Selling vehicles 
@@ -76,7 +76,7 @@
 
                 // installments received
                     print "<tr>";
-                    print "<th>Installments Received</th>";  
+                    print "<th>Installments paid for sold motor vehicles</th>";  
                      $query3="SELECT SUM(amountpaid) from installments";
                         $result3= $conn->query($query3);                                   
                               if(!($result3))
@@ -97,8 +97,9 @@
                                 } 
 
               //cash receivables
+                        
                    print "<tr>";
-                    print "<th>Account Receivables</th>";  
+                    print "<th>Account Receivables (Hire purchase balances)</th>";  
 
                     //select all balances from MV 
                      $query7="SELECT SUM(balance) from soldcars";
@@ -124,18 +125,15 @@
 
 
                 //total for revenue 
-
                   print "<tr>";
-                    print "<th> </th>"; 
-                    $sum =  $othercash + $amountpaid + $deposit;
-                             print "<th>"; print number_format($sum);print "</th>"; print "</tr>";
+                    print "<th style='text-align:center;'> Total Income </th>"; 
+                    $sum =  $othercash + $amountpaid + $deposit +$receivables;
+                  print "<th>"; print number_format($sum);print "</th>"; print "</tr>";
 
                     //space- empty row
                     // print "<tr>";
                     // print "<th><br></th>"; 
                     // print "</tr>";
-
-
 
                  //expenses incurred 
                     print "<tr>";
@@ -160,6 +158,7 @@
                                 }  
 
                   // other cash given out 
+                              
                     print "<tr>";
                     print "<th>Cash given out</th>";
                      $query4="SELECT SUM(amount) from givecash";
@@ -180,10 +179,11 @@
                               echo "0 results fetched";
                             }
                                 }
+                             
 
                   //broker fee
                     print "<tr>";
-                    print "<th>Broker expenses </th>";
+                    print "<th>Broker expenses and commission</th>";
                      $query5="SELECT SUM(brokercommission) from broker";
                         $result5= $conn->query($query5);                                   
                               if(!($result5))
@@ -193,7 +193,7 @@
                           else {  
                             if($result5->num_rows>0){
                               while($row5=$result5->fetch_assoc()) {
-                                $givecash= $row5["SUM(brokercommission)"];
+                                $broker= $row5["SUM(brokercommission)"];
                              print "<th>"; print number_format($row5["SUM(brokercommission)"]);print "</th>"; 
                               }
                               
@@ -205,7 +205,7 @@
 
                   //duty
                     print "<tr>";
-                    print "<th>Duty Paid </th>";
+                    print "<th>Duty paid for motor vehicles </th>";
                      $query6="SELECT SUM(duty) from vehicles";
                         $result6= $conn->query($query6);                                   
                               if(!($result6))
@@ -226,11 +226,9 @@
                                 }
 
 
-
-
                   //other expenses
                     print "<tr>";
-                    print "<th>Other Expenses Paid </th>";
+                    print "<th>Other motor vehicle expenses paid </th>";
                      $query8="SELECT SUM(otherexpenses) from vehicles";
                         $result8= $conn->query($query8);                                   
                               if(!($result8))
@@ -250,13 +248,49 @@
                             }
                                 }
 
+                      //costing 
+                    print "<tr>";
+                    print "<th>Vehicle costing fee </th>";
+                     $query9="SELECT SUM(costing)*101 from vehicles";
+                        $result9= $conn->query($query9);                                   
+                              if(!($result9))
+                            {
+                            echo"<p>Sorry but there seem to be no entry</p>" ; 
+                            }
+                          else {  
+                            if($result9->num_rows>0){
+                              while($row9=$result9->fetch_assoc()) {
+                                $costing= $row9["SUM(costing)*101"];
+                             print "<th>"; print number_format($row9["SUM(costing)*101"]);print "</th>"; 
+                              }
+                              
+                            }
+                            else {
+                              echo "0 results fetched";
+                            }
+                                } 
 
-                  //
+
+
+                      //total for expenses 
+                      print "<tr>";
+                        print "<th style='text-align:center;'> Total Expenses</th>"; 
+                        $sum1 =  $expenses + $broker + $duty + $costing;
+                      print "<th>"; print number_format($sum1);print "</th>"; print "</tr>";
 
 
 
+                       //space- empty row
+                    print "<tr>";
+                    print "<th><br></th>"; 
+                    print "</tr>";
 
-                                //
+
+                            //total for expenses 
+                      print "<tr>";
+                      print "<th style='text-align:center;'>Profit before tax</th>"; 
+                      $res =  $sum - $sum1;
+                      print "<th>"; print number_format($res);print "</th>"; print "</tr>";
                              
                                      ?>
 

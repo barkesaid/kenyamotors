@@ -1,4 +1,4 @@
-<!-- broker reports -->
+<!-- cash out reports -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,7 +12,7 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">Broker Report</span>
+              <span class="d-ib">Cash out Report</span>
             </h1>
             <!--  <p class="title-bar-description"> Brokers and the vehicles they sold </p> -->
 
@@ -34,13 +34,9 @@
                     <thead>
                     <thead>
                       <tr>
-                        <th>Broker Name</th>
-                        <th>Broker Contact</th>
-                        <th>Broker Commission </th>
-                        <th>Vehicle Name</th>
-                        <th>Registration Number</th>
-                        <th>Vehicle Selling Price</th>
-                        <!-- <th>Action</th> -->
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Purpose </th>
                       </tr>
                     </thead>
                     <tfoot>
@@ -53,7 +49,7 @@
                     <!-- start test -->
                      <?php
                     require("dbconnect.php");
-                    $query="SELECT broker.brokername, broker.brokerphone,broker.brokercommission,soldcars.chasis, vehicles.regno,vehicles.vname, soldcars.sellingprice,vehicles.regno FROM broker JOIN soldcars ON broker.chasis=soldcars.chasis JOIN vehicles ON vehicles.chasis= broker.chasis ORDER BY soldcars.datesold DESC";
+                    $query="SELECT cdate,amount,details FROM givecash ORDER BY cdate DESC";
                         $result= $conn->query($query);                                   
                               if(!($result))
                             {
@@ -64,15 +60,10 @@
                             print "<tbody>" ; 
                             if($result->num_rows>0){
                               while($row=$result->fetch_assoc()) {
-                                //id for the expense to edit
-                                 $chasis=$row["chasis"];
                                 print "<tr>";
-                                print "<td>"; print $row["brokername"]; print "</td>" ;
-                                print "<td>"; print $row["brokerphone"]; print "</td>" ;
-                                print "<td>"; print number_format($row["brokercommission"]); print "</td>" ;
-                                print "<td>"; print $row["vname"]; print "</td>" ;
-                                print "<td>"; print $row["regno"]; print "</td>" ;
-                                print "<td>"; print number_format($row["sellingprice"]); print "</td>"; 
+                                print "<td>"; print $row["cdate"]; print "</td>" ;
+                                print "<td>"; print number_format($row["amount"]); print "</td>" ;
+                                print "<td>"; print $row["details"]; print "</td>" ; 
                                 // $editvalue1=$value;    
 
                                 // print "<td><a href='viewasale.php?editvalue1=$editvalue1'><span class='label label-outline-success'>View</span></a></td>";
@@ -80,13 +71,14 @@
 
 
                               }
+                            }
+                          }
 
                                 //total row
                                 print "<tr>";
-                                print "<th></th>"; 
-                                print "<th>Total Commission</th>"; 
+                                print "<th>Total amount</th>"; 
                                  //broker fee
-                                         $query5="SELECT SUM(brokercommission) from broker";
+                                         $query5="SELECT SUM(amount) from givecash";
                                             $result5= $conn->query($query5);                                   
                                                   if(!($result5))
                                                 {
@@ -95,45 +87,19 @@
                                               else {  
                                                 if($result5->num_rows>0){
                                                   while($row5=$result5->fetch_assoc()) {
-                                                    $broker= $row5["SUM(brokercommission)"];
+                                                    $broker= $row5["SUM(amount)"];
                                                   }
                                                 }
                                                 else { echo "0 results fetched"; }
                                                     }
 
-                                print "<th>"; print number_format($broker);  print "</th>"; 
+                                print "<th>"; print number_format($broker);  print "</th>";
                                 print "<th></th>"; 
-                                print "<th>Total Selling Price</th>"; 
-                                //total selling price
-                                  $query6="SELECT SUM(sellingprice) from soldcars";
-                                            $result6= $conn->query($query6);                                   
-                                                  if(!($result6))
-                                                {
-                                                echo"<p>Sorry but there seem to be no entry</p>" ; 
-                                                }
-                                              else {  
-                                                if($result6->num_rows>0){
-                                                  while($row6=$result6->fetch_assoc()) {
-                                                    $sp= $row6["SUM(sellingprice)"];
-                                                  }
-                                                }
-                                                else { echo "0 results fetched"; }
-                                                    }
-                                print "<th>"; print number_format($sp); print "</th>"; 
                                 print "</tr>";
 
 
-                            }
-
-                            else {
-                              echo "0 results fetched";
-                            }
-                                }
-
-
                              
-                                     ?>
-                    <!-- end test -->                
+                                     ?>              
                     </tbody>
                   </table>
                 </div>

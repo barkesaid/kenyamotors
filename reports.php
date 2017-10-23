@@ -104,7 +104,7 @@
                 <p>
                   <small class="text-muted">History for all the cash given out</small>
                 </p>
-                <a href=""><button class="btn btn-outline-primary" type="button">Cash Out</button></a>
+                <a href="cashoutreport.php"><button class="btn btn-outline-primary" type="button">Cash Out</button></a>
           </div>
           </div>
 
