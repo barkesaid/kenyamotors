@@ -1,4 +1,4 @@
-<!-- costing report -->
+<!-- cash received reports -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -12,18 +12,16 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">Costing Report</span>
+              <span class="d-ib">Cash Received Report</span>
             </h1>
-             <p class="title-bar-description">
-             <!--  <small>Select a Sale to view</small> -->
-            </p>
+                <p class="title-bar-description"> Cash received from third parties </p>
 
           </div>
           <div class="row gutter-xs">
             <div class="col-xs-12">
               <div class="card">
-                <div class="card-header">
-               <!--    <div class="card-actions">
+             <!--    <div class="card-header">
+                  <div class="card-actions">
                     <button type="button" class="card-action card-toggler" title="Collapse"></button>
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
@@ -36,27 +34,22 @@
                     <thead>
                     <thead>
                       <tr>
-                        <th>Chasis Number</th>
-                        <th>Registration Number</th>
-                        <th>Vehicle Name</th>
-                        <th>Bill of Landing</th>
-                        <th>Arrived Date</th>
-                        <th>Costing(USD)</th>
-                        <!-- <th>Action</th> -->
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Details </th>
                       </tr>
                     </thead>
-                   <!-- removed the table footer from here -->
-                  <tfoot>
-                       <button style="float: right;" onclick="window.print()"> Print This </button> <br>
-                       <br>
-                    </tfoot>
+                    <tfoot>
+                           <button style="float: right;" onclick="window.print()"> Print </button> <br>
+                           <br>
+                        </tfoot>
 
                        <tbody>
 
                     <!-- start test -->
                      <?php
                     require("dbconnect.php");
-                    $query="SELECT chasis,regno,vname,bl,datein,costing from vehicles ORDER BY datein DESC";
+                    $query="SELECT * FROM addcash ORDER BY cdate DESC";
                         $result= $conn->query($query);                                   
                               if(!($result))
                             {
@@ -67,28 +60,46 @@
                             print "<tbody>" ; 
                             if($result->num_rows>0){
                               while($row=$result->fetch_assoc()) {
-                                //id for the expense to edit
-                                // $value=$row["id"];
                                 print "<tr>";
-                                print "<td>"; print $row["chasis"]; print "</td>" ;
-                                print "<td>"; print $row["regno"]; print "</td>" ;
-                                print "<td>"; print $row["vname"]; print "</td>" ;
-                                print "<td>"; print $row["bl"]; print "</td>" ;
-                                print "<td>"; print $row["datein"]; print "</td>" ;
-                                print "<td>"; print number_format($row["costing"]); print "</td>"; 
+                                print "<td>"; print $row["cdate"]; print "</td>" ;
+                                print "<td>"; print number_format($row["amount"]); print "</td>" ;
+                                print "<td>"; print $row["details"]; print "</td>" ; 
                                 // $editvalue1=$value;    
 
                                 // print "<td><a href='viewasale.php?editvalue1=$editvalue1'><span class='label label-outline-success'>View</span></a></td>";
-                               print "</tr>";
+                               // print "</tr>";
+
 
                               }
                             }
-                            else {
-                              echo "0 results fetched";
-                            }
-                                }
-                                     ?>
-                    <!-- end test -->                
+                          }
+
+                                //total row
+                                print "<tr>";
+                                print "<th>Total amount</th>"; 
+                                 //broker fee
+                                         $query5="SELECT SUM(amount) from addcash";
+                                            $result5= $conn->query($query5);                                   
+                                                  if(!($result5))
+                                                {
+                                                echo"<p>Sorry but there seem to be no entry</p>" ; 
+                                                }
+                                              else {  
+                                                if($result5->num_rows>0){
+                                                  while($row5=$result5->fetch_assoc()) {
+                                                    $cashreceived= $row5["SUM(amount)"];
+                                                  }
+                                                }
+                                                else { echo "0 results fetched"; }
+                                                    }
+
+                                print "<th>"; print number_format($cashreceived);  print "</th>";
+                                print "<th></th>"; 
+                                print "</tr>";
+
+
+                             
+                                     ?>              
                     </tbody>
                   </table>
                 </div>

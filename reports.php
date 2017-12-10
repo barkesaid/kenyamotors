@@ -114,11 +114,12 @@
                 <p>
                   <small class="text-muted">Statement for all the cash received.</small>
                 </p>
-                <a href=""><button class="btn btn-outline-primary" type="button">Cash Received</button></a>
+                <a href="cashreceived.php"><button class="btn btn-outline-primary" type="button">Cash Received</button></a>
           </div>
           </div>
 
-             <div class="col-xs-6 col-md-3">
+              <!-- too vague to have it because I have combined MV expenses into other exoenses -->
+           <!--   <div class="col-xs-6 col-md-3">
              <div class="panel panel-body text-center" data-toggle="match-height">
                 <h5>Motor Vehicle Expenses</h5>
                 <p>
@@ -126,7 +127,7 @@
                 </p>
                 <a href=""><button class="btn btn-outline-primary" type="button">Expenses</button></a>
           </div>
-          </div>
+          </div> 
 
              <div class="col-xs-6 col-md-3">
              <div class="panel panel-body text-center" data-toggle="match-height">
@@ -136,7 +137,7 @@
                 </p>
                 <a href=""><button class="btn btn-outline-primary" type="button">Income</button></a>
           </div>
-          </div>
+          </div> -->
 
 
              <div class="col-xs-6 col-md-3">
@@ -145,7 +146,7 @@
                 <p>
                   <small class="text-muted">View a car installment history</small>
                 </p>
-                <a href=""><button class="btn btn-outline-primary" type="button">Installment</button></a>
+                <a href="carinstallment.php"><button class="btn btn-outline-primary" type="button">Installment</button></a>
           </div>
           </div>
 

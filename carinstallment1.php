@@ -1,21 +1,25 @@
-<!-- costing report -->
+<!-- view payment -->
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
  <?php
-    require_once ('sheader.html');
-  ?>
-     <title>Generate Report</title>
+    require_once ('sheader.html'); 
+    require("dbconnect.php"); 
+    extract($_POST);
+    $chasis=$_POST["chasis"];
+    // echo $chasis;
+?>
+  <title>Installment</title>
 </head>
 <body>
       <div class="layout-content">
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">Costing Report</span>
+              <span class="d-ib">Car Installment Payment History </span>
             </h1>
              <p class="title-bar-description">
-             <!--  <small>Select a Sale to view</small> -->
+            <!--   <small>Customers who purchased vehicles</small> -->
             </p>
 
           </div>
@@ -23,30 +27,23 @@
             <div class="col-xs-12">
               <div class="card">
                 <div class="card-header">
-               <!--    <div class="card-actions">
-                    <button type="button" class="card-action card-toggler" title="Collapse"></button>
-                    <button type="button" class="card-action card-reload" title="Reload"></button>
-                    <button type="button" class="card-action card-remove" title="Remove"></button>
-                  </div>
-                  <strong></strong>
-                </div> -->
                 <div class="card-body">
                   <!-- <table id="demo-datatables-buttons-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%"> -->
-                    <table id="demo-datatables-buttons-2" class="table table-bordered table-striped table-nowrap dataTable" cellspacing="0" width="100%">
-                    <thead>
+
+                    <table id="demo-datatables-buttons-2" class="table table-bordered table-striped table-nowrap dataTable" cellspacing="0" width="100%">>
                     <thead>
                       <tr>
-                        <th>Chasis Number</th>
-                        <th>Registration Number</th>
-                        <th>Vehicle Name</th>
-                        <th>Bill of Landing</th>
-                        <th>Arrived Date</th>
-                        <th>Costing(USD)</th>
+                        <th>Customer ID Number</th>
+                        <th>Customer Name</th>
+                        <th>Customer Contact</th>
+                        <th>Vehicle Purchased</th> 
+                         <th>Registration Number</th> 
+                        <th>Date Purchased</th>                     
                         <!-- <th>Action</th> -->
                       </tr>
                     </thead>
                    <!-- removed the table footer from here -->
-                  <tfoot>
+                    <tfoot>
                        <button style="float: right;" onclick="window.print()"> Print This </button> <br>
                        <br>
                     </tfoot>
@@ -56,7 +53,7 @@
                     <!-- start test -->
                      <?php
                     require("dbconnect.php");
-                    $query="SELECT chasis,regno,vname,bl,datein,costing from vehicles ORDER BY datein DESC";
+                    $query="SELECT soldcars.chasis,vehicles.vname,vehicles.regno,soldcars.datesold,customer.cname,customer.phoneno,customer.idno FROM soldcars JOIN customer ON customer.idno= soldcars.client_idno JOIN vehicles ON soldcars.chasis= vehicles.chasis ORDER BY soldcars.datesold DESC";
                         $result= $conn->query($query);                                   
                               if(!($result))
                             {
@@ -70,12 +67,15 @@
                                 //id for the expense to edit
                                 // $value=$row["id"];
                                 print "<tr>";
-                                print "<td>"; print $row["chasis"]; print "</td>" ;
-                                print "<td>"; print $row["regno"]; print "</td>" ;
+                                print "<td>"; print $row["idno"]; print "</td>" ;
+                                print "<td>"; print $row["cname"]; print "</td>" ;
+                                print "<td>"; print $row["phoneno"]; print "</td>" ;
                                 print "<td>"; print $row["vname"]; print "</td>" ;
-                                print "<td>"; print $row["bl"]; print "</td>" ;
-                                print "<td>"; print $row["datein"]; print "</td>" ;
-                                print "<td>"; print number_format($row["costing"]); print "</td>"; 
+                                print "<td>"; print $row["regno"]; print "</td>" ;                                
+                                print "<td>"; print  $row["datesold"];; print "</td>" ;
+                                  
+
+
                                 // $editvalue1=$value;    
 
                                 // print "<td><a href='viewasale.php?editvalue1=$editvalue1'><span class='label label-outline-success'>View</span></a></td>";

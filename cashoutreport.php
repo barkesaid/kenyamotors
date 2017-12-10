@@ -14,7 +14,7 @@
             <h1 class="title-bar-title">
               <span class="d-ib">Cash out Report</span>
             </h1>
-            <!--  <p class="title-bar-description"> Brokers and the vehicles they sold </p> -->
+            <p class="title-bar-description"> Cash lended out to third parties </p> 
 
           </div>
           <div class="row gutter-xs">
