@@ -337,30 +337,33 @@
                 <div class="card-body">
                   <ul class="media-list">
                     <li class="media">
+                      <div class="media-middle media-left">
+                      </div>
                       <!-- start test -->
-                        <h5 class="media-heading"><a class="link-muted" href="product.html">
+                        <h5 class="media-heading"><a class="link-muted" href="product.html"> <br>
                         <table border=1 px solid black>
                         <thead style="color: black; background: #50c878">
-                        <th> Vehicle Name</th>
-                        <th>Due Date</th> 
-                        <th>Registration No </th>
+                        <th> Vehicle Name </th>
+                        <th> Amount </th> 
+                        <th> Registration No </th>
                         </tr></thead>
                         <tbody>
                         </a></h5>
 
                       <?php
-                            $query2 ="SELECT vehicles.vname,soldcars.duedate,vehicles.regno FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis ORDER BY duedate DESC LIMIT 5";
+                            $query2 ="SELECT vehicles.vname,soldcars.installmentamount,vehicles.regno FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis ORDER BY duedate DESC LIMIT 5";
                             $result2= $conn->query($query2);
                             while ($row2 = $result2->fetch_assoc()){                               
                             $vname = $row2['vname'];  
-                            $duedate=$row2['duedate'];
-                            $duedate1=date_create($duedate);
-                            $duedate2=date_format($duedate1,"d"); 
+                            // $duedate=$row2['duedate'];
+                            // $duedate1=date_create($duedate);
+                            // $duedate2=date_format($duedate1,"d"); 
+                            $installmentamount = number_format($row2['installmentamount']); 
                             $regno=$row2['regno'];
 
-                            echo '<tr><td><h5 class="media-heading">'.$vname.''; echo "</td>";
-                             echo '<td>'.$duedate2.''; echo "</td>";
-                             echo '<td>'.$regno.'</h5>'; echo "</td> </tr>";  
+                            echo '<tr><td><h5 class="media-heading"> '.$vname.' '; echo "</td>";
+                             echo '<td> '.$installmentamount.' '; echo "</td>";
+                             echo '<td> '.$regno.' </h5>'; echo "</td> </tr>";  
                                                       }
                               print "</tbody>" ;
                               print "</table>" ;
@@ -390,7 +393,7 @@
                         <h5 class="media-heading"><a class="link-muted" href="product.html">
                         <table border=1 px solid black>
                         <thead style="color: black; background: #50c878">
-                        <th> Reg. No </th>
+                        <th> Registration No </th>
                         <th> Vehicle Name </th>
                         <th> Date Sold </th>                         
                         </tr></thead>
@@ -404,7 +407,7 @@
                             $result1= $conn->query($query1);
 
                                                                            
-                            while ($row1 = $result1->fetch_assoc()){                               
+                            while ($row1 = $result1->fetch_assoc()){
                             $regno = $row1['regno']; 
                             $vname = $row1['vname']; 
                             $datesold=$row1['datesold'];
@@ -427,9 +430,9 @@
               </div>
             </div>
 <!-- end test -->
-<!-- comment it out for milestone 2 -->
 
-   <!--          <div class="col-md-4 col-md-pull-8">
+<!-- first box of table -->
+            <div class="col-md-4 col-md-pull-8">
               <div class="card">
                 <div class="card-header">
                   <div class="card-actions">
@@ -437,58 +440,43 @@
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                   </div>
-                  <strong>Activity Feed</strong>
+                   <strong>Find something to put here </strong>
                   <span aria-hidden="true"> · </span>
-                  <a href="#">View full report</a>
                 </div>
                 <div class="card-body">
                   <ul class="media-list">
                     <li class="media">
-                      <div class="media-middle media-left">
-                        <a href="product.html">
-                          <img class="img-circle" width="48" height="48" src="img/0299419341.jpg" alt="Harry Jones">
-                        </a>
-                      </div>
-                      <div class="media-middle media-body">
-                        <h5 class="media-heading">
-                          <a href="#">Harry Jones</a>
-                          <small>5 min ago</small>
-                        </h5>
-                        <small>Published a product: "Jade Elephant T-shirt".</small>
-                      </div>
-                    </li>
-                    <li class="media">
-                      <div class="media-middle media-left">
-                        <a href="product.html">
-                          <img class="img-circle" width="48" height="48" src="img/0180441436.jpg" alt="Teddy Wilson">
-                        </a>
-                      </div>
-                      <div class="media-middle media-body">
-                        <h5 class="media-heading">
-                          <a href="#">Teddy Wilson</a>
-                          <small>(10 min ago)</small>
-                        </h5>
-                        <small>Created a new collection: "Summer with Style".</small>
-                      </div>
-                    </li>
-                    <li class="media">
-                      <div class="media-middle media-left">
-                        <a href="product.html">
-                          <img class="img-circle" width="48" height="48" src="img/0310728269.jpg" alt="Daniel Taylor">
-                        </a>
-                      </div>
-                      <div class="media-middle media-body">
-                        <h5 class="media-heading">
-                          <a href="#">Daniel Taylor</a>
-                          <small>(12 min ago)</small>
-                        </h5>
-                        <small>Created a new page: "Free tools".</small>
-                      </div>
-                    </li>
+                      <!-- start test -->
+                        <h5 class="media-heading"><a class="link-muted" href="product.html">
+                        <table border=1 px solid black>
+                        <thead style="color: black; background: #50c878">
+                        <th> Date</th>
+                        <th>Amount</th> 
+                        </tr></thead>
+                        <tbody>
+                        </a></h5>
+
+                      <?php
+                            $query2 ="SELECT cdate, amount FROM givecash ORDER BY cdate DESC LIMIT 5";
+                            $result2= $conn->query($query2);
+                            while ($row2 = $result2->fetch_assoc()){  
+                            $amount = number_format($row2['amount']);                              
+                            $cdate=$row2['cdate'];
+                            // $duedate1=date_create($cdate);
+                            // $duedate2=date_format($duedate1,"d"); 
+
+                            echo '<tr><td><h5 class="media-heading">'.$cdate.''; echo "</td>";
+                            echo '<td>'.$amount.''; echo "</td>";  
+                                                      }
+                              print "</tbody>" ;
+                              print "</table>" ;
+                          // end test 
+                         ?>
                   </ul>
                 </div>
               </div>
-            </div> -->
+            </div> 
+            <!-- end first box of table -->
 
           </div>
         </div>
