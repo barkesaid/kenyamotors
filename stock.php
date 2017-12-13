@@ -20,13 +20,6 @@
             <div class="col-xs-12">
               <div class="card">
                 <div class="card-header">
-                <!--   <div class="card-actions">
-                    <button type="button" class="card-action card-toggler" title="Collapse"></button>
-                    <button type="button" class="card-action card-reload" title="Reload"></button>
-                    <button type="button" class="card-action card-remove" title="Remove"></button>
-                  </div>
-                  <strong>Available Stock</strong>
-                </div> -->
                 <div class="card-body">
                   <!-- <table id="demo-datatables-buttons-1" class="table table-striped table-nowrap dataTable" cellspacing="0" width="100%"> -->
                     <table id="demo-datatables-buttons-2" class="table table-bordered table-striped table-nowrap dataTable" cellspacing="0" width="100%">
@@ -76,6 +69,32 @@
                                print "</tr>";
 
                               }
+                                 //start test
+                                print "<tr>"; 
+                                print "<th></th>";
+                                print "<th></th>";
+                                print "<th></th>";                                
+                                print "<th>Total Duty Paid</th>"; 
+                                       $query5="SELECT sum(vehicles.duty) FROM vehicles LEFT JOIN soldcars ON vehicles.chasis=soldcars.chasis WHERE soldcars.chasis IS NULL ORDER BY vehicles.datein DESC";
+                                        $result5= $conn->query($query5);                                   
+                                              if(!($result5))
+                                            {
+                                            echo"<p>Sorry but there seem to be no entry</p>" ; 
+                                            }
+                                          else {  
+                                            if($result5->num_rows>0){
+                                              while($row5=$result5->fetch_assoc()) {
+                                                $dutypaid= $row5["sum(vehicles.duty)"];
+                                              }
+                                            }
+                                            else { echo "0 results fetched"; }
+                                                }
+
+                                  print "<th>"; print number_format($dutypaid);  print "</th>";   print "</tr>";
+
+
+
+                               //end test
                             }
                             else {
                               echo "0 results fetched";
