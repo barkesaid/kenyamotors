@@ -4,7 +4,7 @@
  <?php
     require_once ('sheader.html');
   ?>
-     <title>Generate Report</title>
+     <title>Sales Report</title>
 </head>
 <body>
       <div class="layout-content">
@@ -79,7 +79,31 @@
                                print "</tr>";
 
                               }
-                            }
+                            //start test
+                                print "<tr>"; 
+                                print "<th></th>";
+                                print "<th></th>";
+                                print "<th></th>";                                
+                                print "<th>Total Sales Made</th>"; 
+                                       $query5="SELECT sum(soldcars.sellingprice),vehicles.chasis FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis ORDER BY `soldcars`.`datesold` DESC";
+                                        $result5= $conn->query($query5);                                   
+                                              if(!($result5))
+                                            {
+                                            echo"<p>Sorry but there seem to be no entry</p>" ; 
+                                            }
+                                          else {  
+                                            if($result5->num_rows>0){
+                                              while($row5=$result5->fetch_assoc()) {
+                                                $sellingprice= $row5["sum(soldcars.sellingprice)"];
+                                              }
+                                            }
+                                            else { echo "0 results fetched"; }
+                                                }
+
+                                  print "<th>"; print number_format($sellingprice);  print "</th>";   print "</tr>";
+                                }
+                               //end test
+
                             else {
                               echo "0 results fetched";
                             }

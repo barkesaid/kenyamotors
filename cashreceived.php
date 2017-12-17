@@ -5,7 +5,7 @@
  <?php
     require_once ('sheader.html');
   ?>
-     <title>Generate Report</title>
+     <title>Cash Received Report</title>
 </head>
 <body>
       <div class="layout-content">
@@ -14,7 +14,7 @@
             <h1 class="title-bar-title">
               <span class="d-ib">Cash Received Report</span>
             </h1>
-                <p class="title-bar-description"> Cash received from third parties </p>
+                <p class="title-bar-description"> (Cash received from third parties)</p>
 
           </div>
           <div class="row gutter-xs">

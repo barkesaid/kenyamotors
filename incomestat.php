@@ -6,7 +6,7 @@
     require_once ('sheader.html');
      require_once("dbconnect.php");
   ?>
-     <title>Generate Report</title>
+     <title>Income Report</title>
 </head>
 <body>
       <div class="layout-content">
@@ -160,7 +160,7 @@
                   // other cash given out 
                               
                     print "<tr>";
-                    print "<th>Cash given out</th>";
+                    print "<th>Third Party Lendings</th>";
                      $query4="SELECT SUM(amount) from givecash";
                         $result4= $conn->query($query4);                                   
                               if(!($result4))

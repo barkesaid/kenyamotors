@@ -5,7 +5,7 @@
  <?php
     require_once ('sheader.html');
   ?>
-     <title>Generate Report</title>
+     <title>Broker Report</title>
 </head>
 <body>
       <div class="layout-content">

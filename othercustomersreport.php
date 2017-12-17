@@ -1,20 +1,27 @@
-<!-- stock available -->
+<!-- customer report -->
+<!-- customers and the vehicles that they purchased -->
+<!-- ghave a way of selcting the customer names and the vehicles they purchased -->
+
+<!-- customer who purchased vehicles -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
  <?php
     require_once ('sheader.html');
   ?>
-     <title>Stock Report</title>
+     <title>Other Customers Report</title>
 </head>
 <body>
       <div class="layout-content">
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">Stock Report </span>
+              <span class="d-ib">Other Customer Report</span>
             </h1>
-           <!--   <p class="title-bar-description"> Vehicles available for sale </p> -->
+             <p class="title-bar-description">
+            <!--   <small>Customers who purchased vehicles</small> -->
+            </p>
+
           </div>
           <div class="row gutter-xs">
             <div class="col-xs-12">
@@ -26,14 +33,13 @@
                     <thead>
                     <thead>
                       <tr>
-                        <th>Registration No</th>
-                        <th>Vehicle Name</th>
-                        <th>Chasis Number </th>
-                        <th>Date Arrived</th>
-                        <th>Duty Paid</th>
-                        <!-- <th>Action</th> -->
+                        <th>Customer ID Number</th>
+                        <th>Customer Name</th>
+                        <th>Customer Contact</th>
+                        <th>Other Information</th> 
                       </tr>
                     </thead>
+                   <!-- removed the table footer from here -->
                     <tfoot>
                        <button style="float: right;" onclick="window.print()"> Print This </button> <br>
                        <br>
@@ -44,7 +50,7 @@
                     <!-- start test -->
                      <?php
                     require("dbconnect.php");
-                    $query="SELECT vehicles.regno,vehicles.vname,vehicles.chasis,vehicles.datein,vehicles.duty FROM vehicles LEFT JOIN soldcars ON vehicles.chasis=soldcars.chasis WHERE soldcars.chasis IS NULL ORDER BY vehicles.datein DESC";
+                    $query="select idno,cname, phoneno, otherinfo from customer where otherinfo !=' '";
                         $result= $conn->query($query);                                   
                               if(!($result))
                             {
@@ -56,45 +62,15 @@
                             if($result->num_rows>0){
                               while($row=$result->fetch_assoc()) {
                                 //id for the expense to edit
-                                $value=$row["chasis"];
+                                // $value=$row["id"];
                                 print "<tr>";
-                                print "<td>"; print $row["regno"]; print "</td>" ;
-                                print "<td>"; print $row["vname"]; print "</td>" ;
-                                print "<td>"; print $row["chasis"]; print "</td>" ;
-                                print "<td>"; print $row["datein"]; print "</td>" ;
-                                print "<td>"; print number_format($row["duty"]); print "</td>" ; 
-                                $editvalue1=$value;    
-
-                                // print "<td><a href='viewastock.php?editvalue1=$editvalue1'><span class='label label-outline-success'>View</span></a></td>";
+                                print "<td>"; print $row["idno"]; print "</td>" ;
+                                print "<td>"; print $row["cname"]; print "</td>" ;
+                                print "<td>"; print $row["phoneno"]; print "</td>" ;
+                                print "<td>"; print $row["otherinfo"]; print "</td>" ;
                                print "</tr>";
 
                               }
-                                 //start test
-                                print "<tr>"; 
-                                print "<th></th>";
-                                print "<th></th>";
-                                print "<th></th>";                                
-                                print "<th>Total Duty Paid</th>"; 
-                                       $query5="SELECT sum(vehicles.duty) FROM vehicles LEFT JOIN soldcars ON vehicles.chasis=soldcars.chasis WHERE soldcars.chasis IS NULL ORDER BY vehicles.datein DESC";
-                                        $result5= $conn->query($query5);                                   
-                                              if(!($result5))
-                                            {
-                                            echo"<p>Sorry but there seem to be no entry</p>" ; 
-                                            }
-                                          else {  
-                                            if($result5->num_rows>0){
-                                              while($row5=$result5->fetch_assoc()) {
-                                                $dutypaid= $row5["sum(vehicles.duty)"];
-                                              }
-                                            }
-                                            else { echo "0 results fetched"; }
-                                                }
-
-                                  print "<th>"; print number_format($dutypaid);  print "</th>";   print "</tr>";
-
-
-
-                               //end test
                             }
                             else {
                               echo "0 results fetched";
@@ -102,7 +78,6 @@
                                 }
                                      ?>
                     <!-- end test -->                
-                     
                     </tbody>
                   </table>
                 </div>

@@ -38,7 +38,8 @@
           </div>
           </div>
           
-          	 <div class="col-xs-6 col-md-3">
+          <!-- not necessary for now -->
+        <!--   	 <div class="col-xs-6 col-md-3">
           	 <div class="panel panel-body text-center" data-toggle="match-height">
                 <h5>Daily Accounts Summary</h5>
                 <p>
@@ -46,7 +47,7 @@
                 </p>
               <a href=""><button class="btn btn-outline-primary" type="button">Accounts Summary</button></a>
           </div>
-          </div>
+          </div> -->
 
           	 <div class="col-xs-6 col-md-3">
           	 <div class="panel panel-body text-center" data-toggle="match-height">
@@ -68,15 +69,27 @@
           </div>
           </div>
 
-          	 <div class="col-xs-6 col-md-3">
-          	 <div class="panel panel-body text-center" data-toggle="match-height">
+          	<div class="col-xs-6 col-md-3">
+          	<div class="panel panel-body text-center" data-toggle="match-height">
                 <h5>Customer Report</h5>
                 <p>
-                  <small class="text-muted">Customer summaryr</small>
+                  <small class="text-muted">Customers who have purchased Vehicles</small>
                 </p>
                 <a href="customerreport.php"><button class="btn btn-outline-primary" type="button">Customer Report</button></a>
           </div>
           </div>
+
+           <div class="col-xs-6 col-md-3">
+             <div class="panel panel-body text-center" data-toggle="match-height">
+                <h5>Other Customers</h5>
+                <p>
+                  <small class="text-muted">Other customers</small>
+                </p>
+                <a href="othercustomersreport.php"><button class="btn btn-outline-primary" type="button">Other Customers</button></a>
+          </div>
+          </div>
+
+
 
           <div class="col-xs-6 col-md-3">
           	 <div class="panel panel-body text-center" data-toggle="match-height">
