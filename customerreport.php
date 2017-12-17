@@ -9,7 +9,7 @@
  <?php
     require_once ('sheader.html');
   ?>
-     <title>Generate Report</title>
+     <title>Customer Report</title>
 </head>
 <body>
       <div class="layout-content">

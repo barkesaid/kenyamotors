@@ -6,7 +6,7 @@
     require_once ('sheader.html');
      require_once("dbconnect.php");
   ?>
-     <title>Generate Report</title>
+     <title>Income Report</title>
 </head>
 <body>
       <div class="layout-content">

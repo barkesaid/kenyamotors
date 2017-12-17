@@ -5,7 +5,7 @@
  <?php
     require_once ('sheader.html');
   ?>
-     <title>Generate Report</title>
+     <title>Expenses Report</title>
 </head>
 <body>
       <div class="layout-content">
@@ -65,9 +65,30 @@
                                 $editvalue1=$value;  
                                 // print "<td><a href='viewanexpense.php?editvalue1=$editvalue1'><span class='label label-outline-success'>View</span></a></td>";
                                print "</tr>";
-
                               }
-                            }
+
+                              //start test
+                                print "<tr>"; 
+                                print "<th></th>";                               
+                                print "<th>Total Expenses Incurred</th>"; 
+                                       $query5="SELECT sum(amount)from expenses";
+                                        $result5= $conn->query($query5);                                   
+                                              if(!($result5))
+                                            {
+                                            echo"<p>Sorry but there seem to be no entry</p>" ; 
+                                            }
+                                          else {  
+                                            if($result5->num_rows>0){
+                                              while($row5=$result5->fetch_assoc()) {
+                                                $expenses= $row5["sum(amount)"];
+                                              }
+                                            }
+                                            else { echo "0 results fetched"; }
+                                                }
+
+                                  print "<th>"; print number_format($expenses);  print "</th>";   print "</tr>";
+                                }
+                               //end test
                             else {
                               echo "0 results fetched";
                             }
