@@ -53,7 +53,7 @@
                     <!-- start test -->
                      <?php
                     require("dbconnect.php");
-                    $query="SELECT broker.brokername, broker.brokerphone,broker.brokercommission,soldcars.chasis, vehicles.regno,vehicles.vname, soldcars.sellingprice,vehicles.regno FROM broker JOIN soldcars ON broker.chasis=soldcars.chasis JOIN vehicles ON vehicles.chasis= broker.chasis ORDER BY soldcars.datesold DESC";
+                    $query="SELECT broker.brokername, broker.brokerphone,broker.brokercommission,soldcars.chasis, vehicles.regno,vehicles.vname, soldcars.sellingprice,vehicles.regno FROM broker JOIN soldcars ON broker.chasis=soldcars.chasis JOIN vehicles ON vehicles.chasis= broker.chasis WHERE broker.brokercommission != 0 ORDER BY soldcars.datesold DESC";
                         $result= $conn->query($query);                                   
                               if(!($result))
                             {

@@ -34,7 +34,7 @@
                 <p>
                   <small class="text-muted">Cash spent for daily operations</small>
                 </p>
-                <a href="expensesreport.php"><button class="btn btn-outline-primary" type="button">Expenses</button></a>
+                <a href="expensesreport.php"><button class="btn btn-outline-primary" type="button">Expenses Report </button></a>
           </div>
           </div>
           
@@ -55,7 +55,7 @@
                 <p>
                   <small class="text-muted">Stock Available</small>
                 </p>
-                <a href="stock.php"><button class="btn btn-outline-primary" type="button"> Stock</button></a>
+                <a href="stock.php"><button class="btn btn-outline-primary" type="button"> Stock Report</button></a>
           </div>
           </div>
 
@@ -97,7 +97,7 @@
                 <p>
                   <small class="text-muted">Payment</small>
                 </p>
-               <a href="brokerreport.php"> <button class="btn btn-outline-primary" type="button">Broker</button></a>
+               <a href="brokerreport.php"> <button class="btn btn-outline-primary" type="button">Broker Report</button></a>
           </div>
           </div>
 
@@ -107,7 +107,7 @@
                 <p>
                   <small class="text-muted">Income Statement</small>
                 </p>
-                <a href="incomestat.php"><button class="btn btn-outline-primary" type="button">Income</button></a>
+                <a href="incomestat.php"><button class="btn btn-outline-primary" type="button">Income Report</button></a>
           </div>
           </div>
 
@@ -159,7 +159,7 @@
                 <p>
                   <small class="text-muted">View a car installment history</small>
                 </p>
-                <a href="carinstallment.php"><button class="btn btn-outline-primary" type="button">Installment</button></a>
+                <a href="carinstallment.php"><button class="btn btn-outline-primary" type="button">Installment Report</button></a>
           </div>
           </div>
 
