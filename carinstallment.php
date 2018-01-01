@@ -6,7 +6,7 @@
     require_once ('sheader.html'); 
     require("dbconnect.php"); 
 ?>
-<title>Sell Vehicle</title>
+<title>Installment History</title>
 </head>
 <body style="position: center"> 
   <div class="layout-content">
@@ -22,7 +22,7 @@
                 <form class="form form-horizontal" action="carinstallment1.php" method="POST" autocomplete="off">
                   <div class="form-group">
                     <div class="form-group">
-                    <label class="col-sm-3 control-label" for="form-control-3">Reg / Chasis Number </label> 
+                    <label class="col-sm-3 control-label" for="form-control-3">Reg / Chasis / Car Name </label> 
                     <div class="col-sm-9"> 
                       <form action="carinstallment1.php" method="POST">
                       <?php

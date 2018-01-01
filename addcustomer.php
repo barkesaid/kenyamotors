@@ -5,7 +5,7 @@
  <?php
     require_once ('sheader.html');
   ?>
-  <title>Add Customer</title>
+  <title>Customer Request</title>
   <script type="text/javascript">
     function sayHello() {
     alert("The new record has been saved!")
@@ -17,7 +17,7 @@
         <div class="layout-content-body">
           <div class="title-bar">           
             <h1 class="title-bar-title">
-              <span class="d-ib" style="position: center">Add New Customer</span>
+              <span class="d-ib" style="position: center">Add Customer Request</span>
             </h1>    <br>
             <!-- this is a test -->
             </div>
