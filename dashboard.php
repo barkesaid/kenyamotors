@@ -22,7 +22,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-primary circle sq-48">
-                        <span class="icon icon-user"></span>
+                      <!--   <span class="img\stock.png"></span> -->
+                      <img class="rounded" width="48" height="48" src="img/stock.png" alt="stock"> 
                       </span>
 
                     </div>
@@ -72,7 +73,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                       <!--  <span class="icon icon-shopping-bag"></span> -->
+                       <img class="rounded" width="48" height="48" src="img/vehicle.png" alt="new vehicle"> 
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -101,7 +103,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                        <!-- <span class="icon icon-shopping-bag"></span> -->
+                         <img class="rounded" width="48" height="48" src="img/sold1.png" alt="sold vehicle"> 
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -131,7 +134,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                        <!-- <span class="icon icon-shopping-bag"></span> -->
+                        <img class="rounded" width="48" height="48" src="img/moninstal.png" alt="monthly installments"> 
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -165,7 +169,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                      <!--   <span class="icon icon-shopping-bag"></span> -->
+                         <img class="rounded" width="48" height="48" src="img/totinstal1.png" alt="total installments">
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -198,7 +203,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                    <!--     <span class="icon icon-shopping-bag"></span> -->
+                        <img class="rounded" width="48" height="48" src="img/pending.jpg" alt="pending installments">
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -262,7 +268,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                <!--         <span class="icon icon-shopping-bag"></span> -->
+                          <img class="rounded" width="48" height="48" src="img/broker.png" alt="brokerage fee">
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -296,7 +303,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                       <!--  <span class="icon icon-shopping-bag"></span> -->
+                        <img class="rounded" width="48" height="48" src="img/othercash.png" alt="other cash">
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -340,7 +348,7 @@
                       <div class="media-middle media-left">
                       </div>
                       <!-- start test -->
-                        <h5 class="media-heading"><a class="link-muted" href="product.html"> <br>
+                        <h5 class="media-heading"><a class="link-muted" href="#"> <br>
                         <table border=1 px solid black>
                         <thead style="color: black; background: #50c878">
                         <th> Vehicle Name </th>
@@ -361,7 +369,7 @@
                             $installmentamount = number_format($row2['installmentamount']); 
                             $regno=$row2['regno'];
 
-                            echo '<tr><td><h5 class="media-heading"> '.$vname.' '; echo "</td>";
+                            echo '<tr><td> '.$vname.' '; echo "</td>";
                              echo '<td> '.$installmentamount.' '; echo "</td>";
                              echo '<td> '.$regno.' </h5>'; echo "</td> </tr>";  
                                                       }
@@ -390,7 +398,7 @@
                       <div class="media-middle media-left">
                       </div>
                             <!-- start test -->
-                        <h5 class="media-heading"><a class="link-muted" href="product.html">
+                        <h5 class="media-heading"><a class="link-muted" href="#">
                         <table border=1 px solid black>
                         <thead style="color: black; background: #50c878">
                         <th> Registration No </th>
@@ -412,7 +420,7 @@
                             $vname = $row1['vname']; 
                             $datesold=$row1['datesold'];
 
-                          echo '<tr><td><h5 class="media-heading">'.$regno.''; echo "</td>";
+                          echo '<tr><td>'.$regno.''; echo "</td>";
                              echo '<td>'.$vname.''; echo "</td>";
                              echo '<td>'.$datesold.'</h5>'; echo "</td> </tr>";  
                                                       }
@@ -440,38 +448,49 @@
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                   </div>
-                   <strong>Find something to put here </strong>
-                  <span aria-hidden="true"> · </span>
+                <strong>Vehicles in Stock</strong>
                 </div>
-                <div class="card-body">
+            <div class="card-body">
                   <ul class="media-list">
                     <li class="media">
-                      <!-- start test -->
+                      <div class="media-middle media-left">
+                      </div>
+                            <!-- start test -->
                         <h5 class="media-heading"><a class="link-muted" href="product.html">
                         <table border=1 px solid black>
                         <thead style="color: black; background: #50c878">
-                        <th> Date</th>
-                        <th>Amount</th> 
+                        <th> Registration No </th>
+                        <th> Vehicle Name </th>
+                        <th> Arrival Date </th>                         
                         </tr></thead>
                         <tbody>
                         </a></h5>
+                          <!-- end test -->
 
-                      <?php
-                            $query2 ="SELECT cdate, amount FROM givecash ORDER BY cdate DESC LIMIT 5";
-                            $result2= $conn->query($query2);
-                            while ($row2 = $result2->fetch_assoc()){  
-                            $amount = number_format($row2['amount']);                              
-                            $cdate=$row2['cdate'];
-                            // $duedate1=date_create($cdate);
-                            // $duedate2=date_format($duedate1,"d"); 
+                       
+                          <?php
+                            $query1 ="SELECT vehicles.regno,vehicles.vname,vehicles.datein FROM vehicles LEFT JOIN soldcars ON vehicles.chasis=soldcars.chasis WHERE soldcars.chasis IS NULL ORDER BY vehicles.datein DESC LIMIT 5";
+                            $result1= $conn->query($query1);
 
-                            echo '<tr><td><h5 class="media-heading">'.$cdate.''; echo "</td>";
-                            echo '<td>'.$amount.''; echo "</td>";  
+                                                                           
+                            while ($row1 = $result1->fetch_assoc()){
+                            $regno = $row1['regno']; 
+                            $vname = $row1['vname']; 
+                            $datesold=$row1['datein'];
+
+                          echo '<tr><td>'.$regno.''; echo "</td>";
+                             echo '<td>'.$vname.''; echo "</td>";
+                             echo '<td>'.$datesold.'</h5>'; echo "</td> </tr>";  
                                                       }
                               print "</tbody>" ;
                               print "</table>" ;
-                          // end test 
-                         ?>
+                            
+                            // echo '<h5 class="media-heading">';
+                            //  echo '<a class="link-muted" href="product.html">'.$regno.' '.$vname.' '.$datesold.'</a>';
+                            // echo "</h5>";
+                            // echo "</option>";
+                         ?>  
+                    </li>
                   </ul>
                 </div>
               </div>
