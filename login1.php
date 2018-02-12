@@ -37,6 +37,10 @@ $password = ($_POST['password']);
                      case 3:
                      header('Location:http://localhost/kenyamotors/homemanager.php');
                      break;
+
+                     case 4:
+                     header('Location:http://localhost/kenyamotors/unauthorize.html');
+                     break;
                
           }//end of switch
       }//end of if

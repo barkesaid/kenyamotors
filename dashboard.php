@@ -22,7 +22,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-primary circle sq-48">
-                        <span class="icon icon-user"></span>
+                      <!--   <span class="img\stock.png"></span> -->
+                      <img class="rounded" width="48" height="48" src="img/stock.png" alt="stock"> 
                       </span>
 
                     </div>
@@ -72,7 +73,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                       <!--  <span class="icon icon-shopping-bag"></span> -->
+                       <img class="rounded" width="48" height="48" src="img/vehicle.png" alt="new vehicle"> 
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -101,7 +103,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                        <!-- <span class="icon icon-shopping-bag"></span> -->
+                         <img class="rounded" width="48" height="48" src="img/sold1.png" alt="sold vehicle"> 
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -131,7 +134,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                        <!-- <span class="icon icon-shopping-bag"></span> -->
+                        <img class="rounded" width="48" height="48" src="img/moninstal.png" alt="monthly installments"> 
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -165,7 +169,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                      <!--   <span class="icon icon-shopping-bag"></span> -->
+                         <img class="rounded" width="48" height="48" src="img/totinstal1.png" alt="total installments">
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -198,7 +203,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                    <!--     <span class="icon icon-shopping-bag"></span> -->
+                        <img class="rounded" width="48" height="48" src="img/pending.jpg" alt="pending installments">
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -262,7 +268,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                <!--         <span class="icon icon-shopping-bag"></span> -->
+                          <img class="rounded" width="48" height="48" src="img/broker.png" alt="brokerage fee">
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -296,7 +303,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                       <!--  <span class="icon icon-shopping-bag"></span> -->
+                        <img class="rounded" width="48" height="48" src="img/othercash.png" alt="other cash">
                       </span>
                     </div>
                     <div class="media-middle media-body">
