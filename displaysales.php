@@ -34,7 +34,7 @@
                     <!-- start test   -->
                     <?php
                     require("dbconnect.php");
-                    $query="SELECT vehicles.vname,soldcars.datesold,vehicles.regno FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis ORDER BY datesold DESC" ;
+                    $query="SELECT vehicles.vname,soldcars.datesold,customer.cname,vehicles.regno FROM soldcars JOIN customer ON soldcars.client_idno= customer.idno JOIN vehicles ON soldcars.chasis= vehicles.chasis ORDER BY soldcars.datesold DESC" ;
                         $result= $conn->query($query);
                         echo "<div class='card-body'>"; 
                             print "<table id='demo-datatables-1' class='table table-striped table-nowrap dataTable' cellspacing='0' width='100%''>";
@@ -42,6 +42,7 @@
                             print "<tr>";
                             print "<th>Car Name</th>" ; 
                             print "<th>Date Sold</th>" ; 
+                            print "<th>Customer Name</th>" ;
                             print "<th>Registration Number</th>" ;  
                             print "<th>Action</th>";
                             print "</tr>"; 
@@ -51,6 +52,7 @@
                             print "<tr>";
                             print "<th>Car Name</th>" ; 
                             print "<th>Date Sold</th>" ; 
+                            print "<th>Customer Name</th>" ;
                             print "<th>Registration Number</th>" ; 
                             print "<th>Action</th>";
                             print "</tr>"; 

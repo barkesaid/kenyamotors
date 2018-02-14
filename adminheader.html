@@ -21,9 +21,9 @@
     <meta name="twitter:title" content="The fastest way to build modern admin site for any platform, browser, or device">
     <meta name="twitter:description" content="Elephant is a front-end template created to help you build modern web applications, fast and in a professional manner.">
     <meta name="twitter:image" content="../../elephant/img/ae165ef33d137d3f18b7707466aa774d.jpg">
-    <link rel="apple-touch-icon" sizes="180x180" href="car1.png">
-    <link rel="icon" type="image/png" href="car1.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="car1.png" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
     <link rel="manifest" href="manifest.json">
     <link rel="mask-icon" href="safari-pinned-tab.svg" color="#0ac29d">
     <meta name="theme-color" content="#ffffff">
@@ -38,7 +38,7 @@
         <div class="navbar-header">
           <!-- <a class="navbar-brand navbar-brand-center" href="index-2.html"> -->
             <img class="navbar-brand-logo">
-          <!--   <img class="navbar-brand-logo" src="img/car1.png" alt="Elephant">Daikyo -->
+           <!--  <img class="navbar-brand-logo" src="img/car1.png" alt="Elephant">Daikyo -->
        <h4 style="margin-left:10px ; color:white">Kenya Motors Ltd</h3>
           </a>
         </div>
@@ -46,7 +46,7 @@
           <nav id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">           
               <!-- <li class="dropdown">
-                <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true">                
+               <!--  <a class="dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true">               
                 <div class="dropdown-menu dropdown-menu-right dropdown-menu-lg">              
                   <div class="dropdown-body">
                     <div class="list-group list-group-divided custom-scrollbar">
@@ -55,16 +55,23 @@
                     </div>
                   </div> 
                 </div>
-              </li>
-              <li class="dropdown hidden-xs"> -->
+              </li> -->
+             <!--  <li class="dropdown hidden-xs"> -->
                 <button class="navbar-account-btn" data-toggle="dropdown" aria-haspopup="true">
-                  <img class="rounded" width="36" height="36" src="img/user.jpg" alt="Accountant"> Accountant/Others
+                  <img class="rounded" width="36" height="36" src="img/admin.png" alt="admin"> Admin
                   <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu dropdown-menu-right">
+                <!-- <ul class="dropdown-menu dropdown-menu-right">
                   <li><a href="login.php">Sign out</a></li>
-                </ul>
-         </ul>
+                </ul> -->
+            <!--   </li> -->
+<!--               <li class="visible-xs-block">
+                <a href="login-1.html">
+                  <span class="icon icon-power-off icon-lg icon-fw"></span>
+                  Sign out
+                </a>
+              </li> -->
+            </ul>
           </nav>
         </div>
       </div>
@@ -85,67 +92,30 @@
                       </div>
                     </div>
                   </form>
-                </li>
-                      <li class="sidenav-heading">Home</li>
+                </li>       
+                  <!-- home -->
+                   <li class="sidenav-heading">Home</li>
                 <li class="sidenav-item">
-                  <a href="homeaccountant.php">
+                  <a href="homeadmin.php">
                     <span class="badge badge-success"></span>
                     <span class="sidenav-icon icon icon-th"></span>
                     <span class="sidenav-label">Home</span>
                   </a>
                 </li>
-                <!-- All expenses 
-               <li class="sidenav-heading">Expenses</li>
-                <li class="sidenav-item">
-                  <a href="">
-                    <span class="badge badge-success"></span>
-                    <span class="sidenav-icon icon icon-th"></span>
-                    <span class="sidenav-label">Expenses</span>
-                  </a>
-                </li>
-
-              
-                  <li class="sidenav-heading">Motor Vehicle</li>
-                <li class="sidenav-item">
-                  <a href="">
-                    <span class="badge badge-success"></span>
-                    <span class="sidenav-icon icon icon-th"></span>
-                    <span class="sidenav-label">Sold Vehicles</span>
-                  </a>
-                </li>
-                    <li class="sidenav-item">
-                  <a href="">
+                <!-- others -->
+                 <li class="sidenav-heading">User Management</li>
+                  <li class="sidenav-item">
+                  <a href="displayusers.php">
                     <span class="sidenav-icon icon icon-columns"></span>
-                    <span class="sidenav-label">Stock</span>
-                  </a>
-                </li> -->
-                  <!-- Installments submenu -->
-                <!-- <li class="sidenav-heading">Installment Purchases</li> -->
-            <!--       <li class="sidenav-item">
-                  <a href="">
-                    <span class="badge badge-success"></span>
-                    <span class="sidenav-icon icon icon-th"></span>
-                    <span class="sidenav-label">Balances</span>
-                  </a>
-                </li> -->
-                  <!-- Cash balances -->
-              <!--      <li class="sidenav-heading">Cash</li>
-                  <li class="sidenav-item">
-                  <a href="">
-                    <span class="badge badge-success"></span>
-                    <span class="sidenav-icon icon icon-th"></span>
-                    <span class="sidenav-label">Balances</span>
-                  </a>
-                </li> -->
-                   <li class="sidenav-heading">Reports</li>
-                  <li class="sidenav-item">
-                  <a href="areports.php">
-                    <span class="badge badge-success"></span>
-                    <span class="sidenav-icon icon icon-th"></span>
-                    <span class="sidenav-label">Generate Report</span>
+                    <span class="sidenav-label">Reset Password</span>
                   </a>
                 </li>
-               
+                <li class="sidenav-item">
+                  <a href="createuser.php">
+                    <span class="sidenav-icon icon icon-th"></span>
+                    <span class="sidenav-label">Create User</span>
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>

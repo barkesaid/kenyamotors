@@ -33,7 +33,7 @@
                     <!-- start test   -->
                     <?php
                     require("dbconnect.php");
-                    $query="SELECT cdate,amount,details,id FROM givecash" ;
+                    $query="SELECT cdate,amount,details,id FROM givecash ORDER BY cdate DESC" ;
                         $result= $conn->query($query);     
 
                         echo "<div class='card-body'>"; 
@@ -60,7 +60,7 @@
                                 $value=$row["id"];
                                 print "<tr>";
                                 print "<td>"; print $row["cdate"]; print "</td>" ;
-                                print "<td>"; print $row["amount"]; print "</td>"; 
+                                print "<td>"; print  number_format($row["amount"]); print "</td>"; 
                                 print "<td>"; print $row["details"]; print "</td>" ;
                                  $editvalue1=$value;    
                                  print "<td><a href='editcashgiven.php?editvalue1=$editvalue1'><span class='label label-outline-success'>Edit</span></a></td>";

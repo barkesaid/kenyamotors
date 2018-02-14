@@ -51,7 +51,7 @@ while ($rows= $result->fetch_assoc())
             <div class="row">
             <div class="col-md-9">
               <div class="demo-form-wrapper">
-                                    <form class="form form-horizontal" action="updateinstallment.php" method="POST" autocomplete="off">
+                                    <form class="form form-horizontal" action="updateinstallments.php" method="POST" autocomplete="off">
                   <div class="form-group">
 
                   <!-- start test  -->

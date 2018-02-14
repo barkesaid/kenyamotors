@@ -33,14 +33,16 @@
                     <!-- start test   -->
                     <?php
                     require("dbconnect.php");
-                    $query="SELECT id,chasis,datepaid,amountpaid FROM installments ORDER BY id DESC";
+                    // $query="SELECT id,chasis,datepaid,amountpaid FROM installments ORDER BY installments.datepaid DESC";
+                   $query= "SELECT vehicles.vname,vehicles.regno, installments.id,installments.chasis,installments.datepaid,installments.amountpaid FROM vehicles INNER JOIN installments ON vehicles.chasis=installments.chasis ORDER BY installments.datepaid DESC";
                         $result= $conn->query($query);     
 
                         echo "<div class='card-body'>"; 
                             print "<table id='demo-datatables-1' class='table table-striped table-nowrap dataTable' cellspacing='0' width='100%''>";
                             print "<thead >" ;   
                             print "<tr>";                            
-                            print "<th>Chasis</th>" ; 
+                            print "<th>Vehicle Name</th>" ; 
+                            print "<th>Reg No</th>" ;                            
                             print "<th>Date Paid</th>" ; 
                             print "<th>Amount Paid</th>" ;  
                             print "<th>Action</th>";
@@ -59,7 +61,8 @@
                                 //id for the expense to edit
                                 $value=$row["id"];
                                 print "<tr>";
-                                print "<td>"; print $row["chasis"]; print "</td>" ;
+                                print "<td>"; print $row["vname"]; print "</td>" ;
+                                print "<td>"; print $row["regno"]; print "</td>" ;                                
                                 print "<td>"; print $row["datepaid"]; print "</td>"; 
                                 print "<td>"; print number_format($row["amountpaid"]); print "</td>" ;
                                  $editvalue1=$value;    
@@ -75,7 +78,8 @@
 
                             print "<tfoot>";
                             print "<tr>";                           
-                            print "<th>Chasis</th>" ; 
+                            print "<th>Vehicle Name</th>" ; 
+                            print "<th>Reg No</th>" ; 
                             print "<th>Date Paid</th>" ; 
                             print "<th>Amount Paid</th>" ;  
                             print "<th>Action</th>";

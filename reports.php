@@ -81,11 +81,11 @@
 
            <div class="col-xs-6 col-md-3">
              <div class="panel panel-body text-center" data-toggle="match-height">
-                <h5>Other Customers</h5>
+                <h5>Customer Requests</h5>
                 <p>
-                  <small class="text-muted">Other customers</small>
+                  <small class="text-muted">Other customers and their requests</small>
                 </p>
-                <a href="othercustomersreport.php"><button class="btn btn-outline-primary" type="button">Other Customers</button></a>
+                <a href="othercustomersreport.php"><button class="btn btn-outline-primary" type="button">Customer Requests</button></a>
           </div>
           </div>
 
@@ -95,7 +95,7 @@
           	 <div class="panel panel-body text-center" data-toggle="match-height">
                 <h5>Broker Statement</h5>
                 <p>
-                  <small class="text-muted">Payment</small>
+                  <small class="text-muted">Broker expenses and their payments</small>
                 </p>
                <a href="brokerreport.php"> <button class="btn btn-outline-primary" type="button">Broker Report</button></a>
           </div>
@@ -162,6 +162,30 @@
                 <a href="carinstallment.php"><button class="btn btn-outline-primary" type="button">Installment Report</button></a>
           </div>
           </div>
+
+          <!-- start test -->
+            <div class="col-xs-6 col-md-3">
+             <div class="panel panel-body text-center" data-toggle="match-height">
+                <h5>Monthly Installment</h5>
+                <p>
+                  <small class="text-muted">Monthly Installments Received </small>
+                </p>
+                <a href="monthlyinstallments.php"><button class="btn btn-outline-primary" type="button">Monthly Installment</button></a>
+          </div>
+          </div>
+
+
+          <div class="col-xs-6 col-md-3">
+             <div class="panel panel-body text-center" data-toggle="match-height">
+                <h5>All Installment</h5>
+                <p>
+                  <small class="text-muted">All Installments Received </small>
+                </p>
+                <a href="allinstallments.php"><button class="btn btn-outline-primary" type="button">All Installment</button></a>
+          </div>
+          </div>
+
+          <!-- end test -->
 
 </div>
             

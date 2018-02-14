@@ -1,11 +1,11 @@
-<!-- dselect and display all vehicles for the user to select and edit -->
+<!-- display users for editing -->
 <!DOCTYPE html>
 <html>
 <head>
  <?php
-    require_once ('sheader.html');
+    require_once ('adminheader.html');
   ?>
-   <title>Display Customers</title>
+   <title>Display Users</title>
 </head>
 <body>
 
@@ -15,10 +15,10 @@
         <div class="layout-content-body">
           <div class="title-bar">
             <h1 class="title-bar-title">
-              <span class="d-ib">Edit Customer</span>
+              <span class="d-ib">Password Reset</span>
             </h1><br>
             <p class="title-bar-description">
-              <small>Select a Customer to Edit/Update</small>
+              <small>Select a user to update their password</small>
             </p>
           </div>
           <div class="row gutter-xs">
@@ -30,29 +30,31 @@
                     <button type="button" class="card-action card-reload" title="Reload"></button>
                     <button type="button" class="card-action card-remove" title="Remove"></button>
                   </div>
-                  <strong>All Customers</strong>
+                  <strong>All Users</strong>
                 </div>
                     <!-- start test   -->
                     <?php
                     require("dbconnect.php");
-                    $query="SELECT cname,email,idno FROM customer" ;
+                    $query="SELECT Username,pass,privilege,id FROM login" ;
                         $result= $conn->query($query);
                         echo "<div class='card-body'>"; 
                             print "<table id='demo-datatables-1' class='table table-striped table-nowrap dataTable' cellspacing='0' width='100%''>";
                             print "<thead >" ;   
                             print "<tr>";
-                            print "<th>Client Name</th>";
-                            print "<th>Email Address</th>";                             
-                            print "<th>Id Number</th>";                          
+                            print "<th>Username</th>";
+                            print "<th>Password</th>"; 
+                            print "<th>Privilege</th>"; 
+                            print "<th>User Id</th>";                         
                             print "<th>Action</th>";  
                             print "</tr>"; 
                             print "</thead>" ; 
                               
                             print "<tfoot>";
-                            print "<tr>";                             
-                            print "<th>Client Name</th>"; 
-                            print "<th>Email Address</th>";
-                            print "<th>Id Number</th>";
+                            print "<tr>";
+                            print "<th>Username</th>";
+                            print "<th>Password</th>"; 
+                            print "<th>Privilege</th>";
+                            print "<th>User Id</th>"; 
                             print "<th>Action</th>";
                             print "</tr>"; 
                             print "</tfoot>";
@@ -74,7 +76,7 @@
                               // $editvalue=$key.$value;  
                               $editvalue1=$value; 
                               // print"<form action='test.php' method='POST'>";
-                             print "<td><a href='editcustomer.php?editvalue1=$editvalue1'><span class='label label-outline-success'>Edit</span></a></td>";
+                             print "<td><a href='edituser.php?editvalue1=$editvalue1'><span class='label label-outline-success'>Edit</span></a></td>";
                             print "</tr>" ;
                             }
                             print "</tbody>" ;                          

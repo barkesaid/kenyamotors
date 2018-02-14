@@ -21,9 +21,10 @@
                 <div class="card-body">
                   <div class="media">
                     <div class="media-middle media-left">
-                      <span class="bg-primary circle sq-48">
-                        <span class="icon icon-user"></span>
-                      </span>
+                     <!--  <span class="bg-primary circle sq-48"> -->
+                      <!--   <span class="img\stock.png"></span> -->
+                      <img class="rounded" width="48" height="48" src="img/stock.jpg" alt="stock"> 
+                    <!--   </span> -->
 
                     </div>
                     <div class="media-middle media-body">
@@ -71,9 +72,10 @@
                 <div class="card-body">
                   <div class="media">
                     <div class="media-middle media-left">
-                      <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
-                      </span>
+                      <!-- <span class="bg-success circle sq-48"> -->
+                       <!--  <span class="icon icon-shopping-bag"></span> -->
+                       <img class="rounded" width="48" height="48" src="img/vehicle.png" alt="new vehicle"> 
+                    <!--   </span> -->
                     </div>
                     <div class="media-middle media-body">
                       <h6 class="media-heading">New Vehicles</h6>
@@ -101,7 +103,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                        <!-- <span class="icon icon-shopping-bag"></span> -->
+                         <img class="rounded" width="48" height="48" src="img/sold1.png" alt="sold vehicle"> 
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -131,7 +134,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                        <!-- <span class="icon icon-shopping-bag"></span> -->
+                        <img class="rounded" width="48" height="48" src="img/moninstal.png" alt="monthly installments"> 
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -164,9 +168,10 @@
                 <div class="card-body">
                   <div class="media">
                     <div class="media-middle media-left">
-                      <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
-                      </span>
+                      <!-- <span class="bg-success circle sq-48"> -->
+                      <!--   <span class="icon icon-shopping-bag"></span> -->
+                         <img class="rounded" width="48" height="48" src="img/totinstal1.png" alt="total installments">
+                    <!--   </span> -->
                     </div>
                     <div class="media-middle media-body">
                       <h6 class="media-heading">All Installments Received</h6>
@@ -198,7 +203,8 @@
                   <div class="media">
                     <div class="media-middle media-left">
                       <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
+                    <!--     <span class="icon icon-shopping-bag"></span> -->
+                        <img class="rounded" width="48" height="48" src="img/pending.jpg" alt="pending installments">
                       </span>
                     </div>
                     <div class="media-middle media-body">
@@ -261,9 +267,10 @@
                 <div class="card-body">
                   <div class="media">
                     <div class="media-middle media-left">
-                      <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
-                      </span>
+                  <!--     <span class="bg-success circle sq-48"> -->
+                <!--         <span class="icon icon-shopping-bag"></span> -->
+                          <img class="rounded" width="47" height="47" src="img/broker.png" alt="brokerage fee">
+                    <!--   </span> -->
                     </div>
                     <div class="media-middle media-body">
                       <h6 class="media-heading">Brokerage Fees</h6>
@@ -295,9 +302,10 @@
                 <div class="card-body">
                   <div class="media">
                     <div class="media-middle media-left">
-                      <span class="bg-success circle sq-48">
-                        <span class="icon icon-shopping-bag"></span>
-                      </span>
+                     <!--  <span class="bg-success circle sq-49"> -->
+                       <!--  <span class="icon icon-shopping-bag"></span> -->
+                        <img class="rounded" width="49" height="49" src="img/othercash.png" alt="other cash">
+                     <!--  </span> -->
                     </div>
                     <div class="media-middle media-body">
                       <h6 class="media-heading">Other cash received</h6>
@@ -320,6 +328,46 @@
                 </div>
               </div>
             </div>
+
+<!-- start test -->
+      <div class="col-md-8 col-lg-4 col-lg-pull-0">
+              <div class="card">
+                <div class="card-body">
+                  <div class="media">
+                    <div class="media-middle media-left">
+                     <!--  <span class="bg-success circle sq-49"> -->
+                       <!--  <span class="icon icon-shopping-bag"></span> -->
+                        <img class="rounded" width="49" height="49" src="img/cashout.png" alt="other cash">
+                     <!--  </span> -->
+                    </div>
+                    <div class="media-middle media-body">
+                      <h6 class="media-heading">Cash Given Out</h6>
+                      <h3 class="media-heading">
+                         <?php
+                      $query4 ="SELECT SUM(amount) from givecash where MONTH(cdate) = MONTH(NOW())";
+                      $result4= $conn->query($query4);
+                       if(!$result4){ echo "".$conn->error;  }
+                            else {
+                      while ($rows4= $result4->fetch_assoc())
+                        { 
+                          $cashout=number_format($rows4["SUM(amount)"]);                         
+                         }     
+
+                      echo "<span class='fw-l'>$cashout</span>";
+                           }?> 
+                      </h3>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+<!-- end test -->
+
+
         </div>
 
           <div class="row gutter-xs">
@@ -340,15 +388,15 @@
                       <div class="media-middle media-left">
                       </div>
                       <!-- start test -->
-                        <h5 class="media-heading"><a class="link-muted" href="#"> <br>
+                        <h5 class="media-heading"> 
                         <table border=1 px solid black>
-                        <thead style="color: black; background: #50c878">
-                        <th> Vehicle Name </th>
-                        <th> Amount </th> 
+                        <thead > <!-- style="color: black; background: #50c878" -->
                         <th> Registration No </th>
+                        <th> Vehicle Name </th>
+                        <th> Amount </th>                         
                         </tr></thead>
                         <tbody>
-                        </a></h5>
+                        </h5>
 
                       <?php
                             $query2 ="SELECT vehicles.vname,soldcars.installmentamount,vehicles.regno FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis ORDER BY duedate DESC LIMIT 5";
@@ -360,10 +408,12 @@
                             // $duedate2=date_format($duedate1,"d"); 
                             $installmentamount = number_format($row2['installmentamount']); 
                             $regno=$row2['regno'];
+                       
 
-                            echo '<tr><td> '.$vname.' '; echo "</td>";
-                             echo '<td> '.$installmentamount.' '; echo "</td>";
-                             echo '<td> '.$regno.' </h5>'; echo "</td> </tr>";  
+                            echo '<tr><td> '.$regno.' '; echo "</td>";                             
+                            echo '<td> '.$vname.' '; echo "</td>";
+                            echo '<td> '.$installmentamount.' '; echo "</td> </tr>";
+                             
                                                       }
                               print "</tbody>" ;
                               print "</table>" ;
@@ -390,17 +440,15 @@
                       <div class="media-middle media-left">
                       </div>
                             <!-- start test -->
-                        <h5 class="media-heading"><a class="link-muted" href="#">
+                        <h5 class="media-heading">
                         <table border=1 px solid black>
-                        <thead style="color: black; background: #50c878">
-                        <th> Registration No </th>
+                        <thead> <!-- style="color: black; background: #50c878 -->
+                        <th> Reg No </th>
                         <th> Vehicle Name </th>
                         <th> Date Sold </th>                         
                         </tr></thead>
                         <tbody>
-                        </a></h5>
-                          <!-- end test -->
-
+                        </h5>
                        
                           <?php
                             $query1 ="SELECT vehicles.regno,vehicles.vname,soldcars.datesold FROM vehicles INNER JOIN soldcars ON vehicles.chasis=soldcars.chasis ORDER by datesold DESC LIMIT 5";
@@ -412,9 +460,9 @@
                             $vname = $row1['vname']; 
                             $datesold=$row1['datesold'];
 
-                          echo '<tr><td>'.$regno.''; echo "</td>";
-                             echo '<td>'.$vname.''; echo "</td>";
-                             echo '<td>'.$datesold.'</h5>'; echo "</td> </tr>";  
+                          echo '<tr><td> '.$regno.''; echo "</td>";
+                             echo '<td> '.$vname.''; echo "</td>";
+                             echo '<td> '.$datesold.'</h5>'; echo "</td> </tr>";  
                                                       }
                               print "</tbody>" ;
                               print "</table>" ;
@@ -448,15 +496,15 @@
                       <div class="media-middle media-left">
                       </div>
                             <!-- start test -->
-                        <h5 class="media-heading"><a class="link-muted" href="product.html">
+                        <h5 class="media-heading">
                         <table border=1 px solid black>
-                        <thead style="color: black; background: #50c878">
+                        <thead >  <!-- style="color: black; background: #50c878" -->
                         <th> Registration No </th>
                         <th> Vehicle Name </th>
-                        <th> Arrival Date </th>                         
+                        <th> Arrived </th>                         
                         </tr></thead>
                         <tbody>
-                        </a></h5>
+                        </h5>
                           <!-- end test -->
 
                        

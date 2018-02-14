@@ -250,7 +250,7 @@
 
                       //costing 
                     print "<tr>";
-                    print "<th>Vehicle costing fee </th>";
+                    print "<th>Account Payables </th>";
                      $query9="SELECT SUM(costing)*101 from vehicles";
                         $result9= $conn->query($query9);                                   
                               if(!($result9))

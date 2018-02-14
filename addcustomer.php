@@ -76,7 +76,7 @@
                   </div> <br>
 
                     <div class="form-group">
-                    <label class="col-sm-3 control-label" for="form-control-8">Other Information</label>
+                    <label class="col-sm-3 control-label" for="form-control-8">Request/Other Information</label>
                     <div class="col-sm-9">
                       <textarea id="form-control-8" class="form-control" rows="3" name="otherinfo" placeholder="The customer wanted to purchase....."></textarea>
                     </div>
